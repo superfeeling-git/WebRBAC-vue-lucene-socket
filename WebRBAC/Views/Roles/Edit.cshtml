@@ -1,0 +1,46 @@
+﻿@model WebRBAC.Models.Roles
+@{
+    ViewBag.Title = "Edit";
+}
+<h2>Edit</h2>
+<style type="text/css">
+    table tr td {
+        padding: 4px;
+        margin: 4px;
+    }
+
+    .field-validation-error {
+        color: red;
+    }
+</style>
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/My97DatePicker/WdatePicker.js"></script>
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td>角色名称:</td>
+            <td>
+                @Html.TextBoxFor(m => m.RoleName)
+            @Html.ValidationMessageFor(m => m.RoleName)
+        </td>
+    </tr>
+    <tr>
+        <td>添加时间:</td>
+        <td>
+            @Html.TextBoxFor(m => m.AddTime, new { @Value = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), onfocus = "WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" })
+            @Html.ValidationMessageFor(m => m.RoleName)
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            @Html.HiddenFor(m => m.RoleID)
+            <button type="submit">添加</button>
+            <button type="reset">重置</button>
+        </td>
+    </tr>
+</table>
+}

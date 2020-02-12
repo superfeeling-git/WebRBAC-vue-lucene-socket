@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="23b9e4a1a123491488817ffc9dc1389a" Name="Diagram1">
+        <EntityTypeShape EntityType="dechengModel.dc_Admin" Width="1.5" PointX="12" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dechengModel.dc_Common_Course_Teacher" Width="1.5" PointX="8.25" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dechengModel.dc_CommonCourse" Width="1.5" PointX="6" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dechengModel.dc_CommonCourseClass" Width="1.5" PointX="3.75" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dechengModel.dc_CommonTeacher" Width="1.5" PointX="6" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dechengModel.dc_Course" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dechengModel.dc_Course_Teacher" Width="1.5" PointX="7.5" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dechengModel.dc_CourseEnroll" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dechengModel.dc_CourseFavorite" Width="1.5" PointX="8.25" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dechengModel.dc_Enroll" Width="1.5" PointX="7.5" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dechengModel.dc_Enterprise" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dechengModel.dc_Log" Width="1.5" PointX="14.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dechengModel.dc_Mail" Width="1.5" PointX="10.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dechengModel.dc_MailSend" Width="1.5" PointX="13" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dechengModel.dc_Message" Width="1.5" PointX="14.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dechengModel.dc_Notice" Width="1.5" PointX="5.25" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dechengModel.dc_Notice_Staff" Width="1.5" PointX="7.5" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dechengModel.dc_Roles" Width="1.5" PointX="9.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dechengModel.dc_RolesItem" Width="1.5" PointX="12" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dechengModel.dc_Shortcut" Width="1.5" PointX="12" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dechengModel.dc_Staff" Width="1.5" PointX="3" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dechengModel.dc_Student" Width="1.5" PointX="14.75" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dechengModel.dc_SysConfig" Width="1.5" PointX="0.75" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dechengModel.dc_SysItemsClass" Width="1.5" PointX="9.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dechengModel.dc_Teacher" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dechengModel.dc_User" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dechengModel.dc_UserItemsClass" Width="1.5" PointX="15.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dechengModel.View_dc_Course" Width="1.5" PointX="16.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dechengModel.View_dc_Favorite" Width="1.5" PointX="16.75" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dechengModel.View_dc_Feedback" Width="1.5" PointX="17.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dechengModel.View_dc_MailList" Width="1.5" PointX="2.75" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dechengModel.View_dc_Message" Width="1.5" PointX="14.75" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dechengModel.View_dc_Message_Enterprise" Width="1.5" PointX="16.75" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dechengModel.View_dc_Message_Staff" Width="1.5" PointX="18.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dechengModel.View_dc_SendMail" Width="1.5" PointX="18.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dechengModel.View_dc_Sign" Width="1.5" PointX="18.75" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dechengModel.VIEW_NAME" Width="1.5" PointX="18.75" PointY="19.5" IsExpanded="true" />
+        <AssociationConnector Association="dechengModel.FK_dc_ADMIN_REFERENCE_dc_ROLES" ManuallyRouted="false" />
+        <AssociationConnector Association="dechengModel.FK_DC_COMMON_COURSE_T_REFERENCE_DC_COMMONCOURSE" ManuallyRouted="false" />
+        <AssociationConnector Association="dechengModel.FK_DC_COMMON_COURSE_T_REFERENCE_DC_COMMONTEACHER" ManuallyRouted="false" />
+        <AssociationConnector Association="dechengModel.FK_DC_COMMONCOURSE_REFERENCE_DC_COMMONCOURSECLA" ManuallyRouted="false" />
+        <AssociationConnector Association="dechengModel.FK_dc_CourseFavorite_dc_CommonCourse" ManuallyRouted="false" />
+        <AssociationConnector Association="dechengModel.FK_dc_Course_dc_Enterprise" ManuallyRouted="false" />
+        <AssociationConnector Association="dechengModel.FK_DC_COURSE_TEACHER_REFERENCE_DC_COURSE" ManuallyRouted="false" />
+        <AssociationConnector Association="dechengModel.FK_DC_ENROLL_REFERENCE_DC_COURSE" ManuallyRouted="false" />
+        <AssociationConnector Association="dechengModel.FK_DC_COURSE_TEACHER_REFERENCE_DC_TEACHER" ManuallyRouted="false" />
+        <AssociationConnector Association="dechengModel.FK_DC_COURSEFAVORITE_REFERENCE_DC_COMMONCOURSE" ManuallyRouted="false" />
+        <AssociationConnector Association="dechengModel.FK_dc_Enterprise_dc_User" ManuallyRouted="false" />
+        <AssociationConnector Association="dechengModel.FK_DC_Notice_REFERENCE_DC_ENTERPRISE" ManuallyRouted="false" />
+        <AssociationConnector Association="dechengModel.FK_dc_MailSend_dc_Mail" ManuallyRouted="false" />
+        <AssociationConnector Association="dechengModel.FK_dc_Notice_Staff_dc_Notice_Staff" ManuallyRouted="false" />
+        <AssociationConnector Association="dechengModel.FK_dc_Notice_Staff_dc_Staff" ManuallyRouted="false" />
+        <AssociationConnector Association="dechengModel.FK_dc_RolesItem_dc_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="dechengModel.FK_dc_RolesItem_dc_SysItemsClass" ManuallyRouted="false" />
+        <AssociationConnector Association="dechengModel.FK_dc_shortcut_dc_SysItemsClass" ManuallyRouted="false" />
+        <AssociationConnector Association="dechengModel.FK_dc_Staff_dc_User" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<WebRBAC.Models.sysClass>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <td>分类名称</td>
+        <td>操作</td>
+    </tr>
+    @foreach(var p in Model)
+    {
+        <tr>
+            <td>
+                @{ 
+                    string nbsp = string.Empty;
+                    if(p.ParentID != 0)
+                    {
+                        nbsp += "|";
+                        for(int i = 0; i < p.Depth; i++)
+                        {
+                            nbsp += "&nbsp;&nbsp;&nbsp;&nbsp;";
+                        }
+
+                        nbsp += $"├{p.ClassName}";
+                    }
+                    else
+                    {
+                        nbsp += $"<b>{p.ClassName}</b>";
+                    }
+                }
+            @Html.Raw(nbsp)
+            </td>
+            <td>
+                <a href="#">添加子分类</a>
+                <a href="#">编辑</a>
+                <a href="#">删除</a>
+            </td>
+        </tr>
+    }
+</table>

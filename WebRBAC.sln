@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1000
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebRBAC", "WebRBAC\WebRBAC.csproj", "{4AD77FA0-CEF3-4DFB-86EA-006473462B94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleSocketServer", "ConsoleSocketServer\ConsoleSocketServer.csproj", "{53AC15F2-5677-43B6-9726-0F2D49B3AAD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleSocketClient", "ConsoleSocketClient\ConsoleSocketClient.csproj", "{32604768-F009-4976-8FF7-E1B20467A4C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleMultiSocket", "ConsoleMultiSocket\ConsoleMultiSocket.csproj", "{B1E993C3-A72D-41C8-AB96-0A087EE4F825}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsServer", "WindowsFormsServer\WindowsFormsServer.csproj", "{386EDC9E-89DB-4D64-BB24-97ECA74158F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsClient", "WindowsFormsClient\WindowsFormsClient.csproj", "{09F712FA-441E-4064-98E5-C86D7DAF790B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4AD77FA0-CEF3-4DFB-86EA-006473462B94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AD77FA0-CEF3-4DFB-86EA-006473462B94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AD77FA0-CEF3-4DFB-86EA-006473462B94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AD77FA0-CEF3-4DFB-86EA-006473462B94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53AC15F2-5677-43B6-9726-0F2D49B3AAD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53AC15F2-5677-43B6-9726-0F2D49B3AAD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53AC15F2-5677-43B6-9726-0F2D49B3AAD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53AC15F2-5677-43B6-9726-0F2D49B3AAD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32604768-F009-4976-8FF7-E1B20467A4C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32604768-F009-4976-8FF7-E1B20467A4C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32604768-F009-4976-8FF7-E1B20467A4C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32604768-F009-4976-8FF7-E1B20467A4C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1E993C3-A72D-41C8-AB96-0A087EE4F825}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1E993C3-A72D-41C8-AB96-0A087EE4F825}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1E993C3-A72D-41C8-AB96-0A087EE4F825}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1E993C3-A72D-41C8-AB96-0A087EE4F825}.Release|Any CPU.Build.0 = Release|Any CPU
+		{386EDC9E-89DB-4D64-BB24-97ECA74158F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{386EDC9E-89DB-4D64-BB24-97ECA74158F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{386EDC9E-89DB-4D64-BB24-97ECA74158F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{386EDC9E-89DB-4D64-BB24-97ECA74158F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09F712FA-441E-4064-98E5-C86D7DAF790B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09F712FA-441E-4064-98E5-C86D7DAF790B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09F712FA-441E-4064-98E5-C86D7DAF790B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09F712FA-441E-4064-98E5-C86D7DAF790B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6ACF9C0F-8237-4607-8D0F-8FF49B99F1DD}
+	EndGlobalSection
+EndGlobal

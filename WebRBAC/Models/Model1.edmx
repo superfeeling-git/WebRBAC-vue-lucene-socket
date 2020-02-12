@@ -1,0 +1,2884 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dechengModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="dc_Admin">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RolesID" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="PassWord" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastLoginTime" Type="smalldatetime" />
+          <Property Name="LastLoginIP" Type="nvarchar" MaxLength="50" />
+          <Property Name="LoginNum" Type="int" />
+          <Property Name="Token" Type="nvarchar" MaxLength="50" />
+          <Property Name="PersonName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="OpenID" Type="nvarchar" MaxLength="50" />
+          <Property Name="PageSize" Type="int" Nullable="false" />
+          <Property Name="PageGroup" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dc_Common_Course_Teacher">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TeacherID" Type="int" Nullable="false" />
+          <Property Name="CourseID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dc_CommonCourse">
+          <Key>
+            <PropertyRef Name="CourseID" />
+          </Key>
+          <Property Name="CourseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClassID" Type="int" Nullable="false" />
+          <Property Name="CourseName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="SubTitle" Type="nvarchar" MaxLength="100" />
+          <Property Name="CoursePic" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CourseOrder" Type="tinyint" Nullable="false" />
+          <Property Name="CourseIntro" Type="nvarchar(max)" />
+          <Property Name="CourseDetail" Type="ntext" />
+          <Property Name="IsHome" Type="bit" Nullable="false" />
+          <Property Name="AddTime" Type="smalldatetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dc_CommonCourseClass">
+          <Key>
+            <PropertyRef Name="ClassID" />
+          </Key>
+          <Property Name="ClassID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClassName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ParentID" Type="int" Nullable="false" />
+          <Property Name="ParentPath" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Depth" Type="int" Nullable="false" />
+          <Property Name="Child" Type="int" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="LanType" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dc_CommonTeacher">
+          <Key>
+            <PropertyRef Name="TeacherID" />
+          </Key>
+          <Property Name="TeacherID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TeacherName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="NamePY" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="SubTitle" Type="nvarchar" MaxLength="100" />
+          <Property Name="TeacherTel" Type="nvarchar" MaxLength="100" />
+          <Property Name="TeacherEmail" Type="nvarchar" MaxLength="100" />
+          <Property Name="TeacherIntro" Type="nvarchar(max)" />
+          <Property Name="TeacherDetail" Type="ntext" />
+          <Property Name="TeacherPhoto" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsHome" Type="bit" Nullable="false" />
+          <Property Name="AddTime" Type="smalldatetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dc_Course">
+          <Key>
+            <PropertyRef Name="CourseID" />
+          </Key>
+          <Property Name="CourseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EnterpriseID" Type="int" Nullable="false" />
+          <Property Name="CourseName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="SubTitle" Type="nvarchar" MaxLength="100" />
+          <Property Name="CoursePic" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CourseOrder" Type="tinyint" Nullable="false" />
+          <Property Name="CourseIntro" Type="nvarchar(max)" />
+          <Property Name="CourseDetail" Type="ntext" />
+          <Property Name="ClassTime" Type="smalldatetime" />
+          <Property Name="ClassPlace" Type="nvarchar" MaxLength="100" />
+          <Property Name="CancelTime" Type="smalldatetime" />
+          <Property Name="QRCode" Type="nvarchar" MaxLength="100" />
+          <Property Name="CourseState" Type="tinyint" Nullable="false" />
+          <Property Name="SignupCount" Type="int" Nullable="false" />
+          <Property Name="SigninCount" Type="int" Nullable="false" />
+          <Property Name="IsHome" Type="bit" Nullable="false" />
+          <Property Name="AddTime" Type="smalldatetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dc_Course_Teacher">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseID" Type="int" Nullable="false" />
+          <Property Name="TeacherID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dc_CourseEnroll">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="StaffID" Type="int" />
+          <Property Name="CourseID" Type="int" />
+          <Property Name="CourseName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Action" Type="nvarchar" MaxLength="50" />
+          <Property Name="AddTime" Type="smalldatetime" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="dc_CourseFavorite">
+          <Key>
+            <PropertyRef Name="FavoriteID" />
+          </Key>
+          <Property Name="FavoriteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EnterpriseID" Type="int" Nullable="false" />
+          <Property Name="CourseID" Type="int" Nullable="false" />
+          <Property Name="FavoriteTime" Type="smalldatetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dc_Enroll">
+          <Key>
+            <PropertyRef Name="EnrollID" />
+          </Key>
+          <Property Name="EnrollID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StaffID" Type="int" Nullable="false" />
+          <Property Name="CourseID" Type="int" Nullable="false" />
+          <Property Name="SignupTime" Type="smalldatetime" />
+          <Property Name="SigninTime" Type="smalldatetime" />
+          <Property Name="Feedback" Type="ntext" />
+          <Property Name="FeedbackTime" Type="smalldatetime" />
+          <Property Name="Sign" Type="bit" />
+        </EntityType>
+        <EntityType Name="dc_Enterprise">
+          <Key>
+            <PropertyRef Name="EnterpriseID" />
+          </Key>
+          <Property Name="EnterpriseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="EnterpriseName" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Province" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Area" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" />
+          <Property Name="Contact" Type="nvarchar" MaxLength="100" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="100" />
+          <Property Name="EnterpriseCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Toplimit" Type="int" Nullable="false" />
+          <Property Name="Lowerlimit" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dc_Log">
+          <Key>
+            <PropertyRef Name="LogId" />
+          </Key>
+          <Property Name="LogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserType" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1500" Nullable="false" />
+          <Property Name="Mobile" Type="bit" Nullable="false" />
+          <Property Name="OS" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Brower" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UA" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="IP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AddTime" Type="smalldatetime" Nullable="false" />
+          <Property Name="LanType" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dc_Mail">
+          <Key>
+            <PropertyRef Name="MailID" />
+          </Key>
+          <Property Name="MailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Source" Type="tinyint" Nullable="false" />
+          <Property Name="UID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Content" Type="ntext" Nullable="false" />
+          <Property Name="AddTime" Type="smalldatetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dc_MailSend">
+          <Key>
+            <PropertyRef Name="SendID" />
+          </Key>
+          <Property Name="SendID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MailID" Type="int" Nullable="false" />
+          <Property Name="ToMail" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="SendTime" Type="smalldatetime" />
+          <Property Name="SendState" Type="bit" Nullable="false" />
+          <Property Name="ResultState" Type="bit" />
+        </EntityType>
+        <EntityType Name="dc_Message">
+          <Key>
+            <PropertyRef Name="MessageID" />
+          </Key>
+          <Property Name="MessageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="UserType" Type="tinyint" Nullable="false" />
+          <Property Name="TeacherName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pick" Type="bit" Nullable="false" />
+          <Property Name="Content" Type="ntext" />
+          <Property Name="IP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AddTime" Type="smalldatetime" Nullable="false" />
+          <Property Name="Source" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dc_Notice">
+          <Key>
+            <PropertyRef Name="NoticeID" />
+          </Key>
+          <Property Name="NoticeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EnterpriseID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="TitleColor" Type="nvarchar" MaxLength="50" />
+          <Property Name="Content" Type="ntext" />
+          <Property Name="IsHome" Type="bit" Nullable="false" />
+          <Property Name="IsTop" Type="bit" Nullable="false" />
+          <Property Name="AddTime" Type="smalldatetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dc_Notice_Staff">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StaffID" Type="int" Nullable="false" />
+          <Property Name="NoticeID" Type="int" Nullable="false" />
+          <Property Name="ReadTime" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="dc_Roles">
+          <Key>
+            <PropertyRef Name="RolesID" />
+          </Key>
+          <Property Name="RolesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RolesName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AddTime" Type="smalldatetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dc_RolesItem">
+          <Key>
+            <PropertyRef Name="Roles_Class_ID" />
+          </Key>
+          <Property Name="Roles_Class_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RolesID" Type="int" Nullable="false" />
+          <Property Name="ClassID" Type="int" Nullable="false" />
+          <Property Name="LanType" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dc_Shortcut">
+          <Key>
+            <PropertyRef Name="shortcutID" />
+          </Key>
+          <Property Name="shortcutID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdminID" Type="int" Nullable="false" />
+          <Property Name="ClassID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dc_Staff">
+          <Key>
+            <PropertyRef Name="StaffID" />
+          </Key>
+          <Property Name="StaffID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EnterpriseID" Type="int" Nullable="false" />
+          <Property Name="Gender" Type="bit" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dc_Student">
+          <Key>
+            <PropertyRef Name="StudentID" />
+          </Key>
+          <Property Name="StudentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="AddTime" Type="smalldatetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dc_SysConfig">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="Keywords" Type="nvarchar" MaxLength="200" />
+          <Property Name="ICP" Type="nvarchar" MaxLength="200" />
+          <Property Name="SMTPServer" Type="nvarchar" MaxLength="50" />
+          <Property Name="SMTPServerPort" Type="int" />
+          <Property Name="FromEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PassWord" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsSSL" Type="bit" Nullable="false" />
+          <Property Name="SignLimit" Type="int" Nullable="false" />
+          <Property Name="PageSize" Type="int" Nullable="false" />
+          <Property Name="PageGroup" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dc_SysItemsClass">
+          <Key>
+            <PropertyRef Name="ClassID" />
+          </Key>
+          <Property Name="ClassID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClassName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ParentID" Type="int" Nullable="false" />
+          <Property Name="ParentPath" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Depth" Type="int" Nullable="false" />
+          <Property Name="Child" Type="int" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="LinkUrl" Type="nvarchar" MaxLength="100" />
+          <Property Name="LanType" Type="tinyint" Nullable="false" />
+          <Property Name="IsHome" Type="bit" />
+          <Property Name="Icon" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="dc_Teacher">
+          <Key>
+            <PropertyRef Name="TeacherID" />
+          </Key>
+          <Property Name="TeacherID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EnterpriseID" Type="int" Nullable="false" />
+          <Property Name="TeacherName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="NamePY" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="SubTitle" Type="nvarchar" MaxLength="100" />
+          <Property Name="TeacherTel" Type="nvarchar" MaxLength="100" />
+          <Property Name="TeacherEmail" Type="nvarchar" MaxLength="100" />
+          <Property Name="TeacherIntro" Type="nvarchar(max)" />
+          <Property Name="TeacherDetail" Type="ntext" />
+          <Property Name="TeacherPhoto" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsHome" Type="bit" Nullable="false" />
+          <Property Name="AddTime" Type="smalldatetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dc_User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserType" Type="tinyint" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastLoginIP" Type="nvarchar" MaxLength="15" />
+          <Property Name="LastLoginTime" Type="smalldatetime" />
+          <Property Name="LoginNum" Type="int" Nullable="false" />
+          <Property Name="IsLock" Type="bit" Nullable="false" />
+          <Property Name="Token" Type="nvarchar" MaxLength="100" />
+          <Property Name="AddTime" Type="smalldatetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dc_UserItemsClass">
+          <Key>
+            <PropertyRef Name="ClassID" />
+          </Key>
+          <Property Name="ClassID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClassName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ParentID" Type="int" Nullable="false" />
+          <Property Name="ParentPath" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Depth" Type="int" Nullable="false" />
+          <Property Name="Child" Type="int" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="LanType" Type="tinyint" Nullable="false" />
+          <Property Name="LinkUrl" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“decheng.dbo.View_dc_Course”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_dc_Course">
+          <Key>
+            <PropertyRef Name="CourseID" />
+            <PropertyRef Name="EnterpriseID" />
+            <PropertyRef Name="CourseName" />
+            <PropertyRef Name="CourseState" />
+            <PropertyRef Name="SignupCount" />
+            <PropertyRef Name="SigninCount" />
+            <PropertyRef Name="IsHome" />
+            <PropertyRef Name="AddTime" />
+            <PropertyRef Name="FullName" />
+            <PropertyRef Name="EnrollID" />
+            <PropertyRef Name="StaffID" />
+            <PropertyRef Name="Gender" />
+            <PropertyRef Name="Email" />
+          </Key>
+          <Property Name="CourseID" Type="int" Nullable="false" />
+          <Property Name="EnterpriseID" Type="int" Nullable="false" />
+          <Property Name="CourseName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="SubTitle" Type="nvarchar" MaxLength="100" />
+          <Property Name="ClassTime" Type="smalldatetime" />
+          <Property Name="ClassPlace" Type="nvarchar" MaxLength="100" />
+          <Property Name="CancelTime" Type="smalldatetime" />
+          <Property Name="CourseState" Type="tinyint" Nullable="false" />
+          <Property Name="SignupCount" Type="int" Nullable="false" />
+          <Property Name="SigninCount" Type="int" Nullable="false" />
+          <Property Name="IsHome" Type="bit" Nullable="false" />
+          <Property Name="AddTime" Type="smalldatetime" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EnrollID" Type="int" Nullable="false" />
+          <Property Name="SignupTime" Type="smalldatetime" />
+          <Property Name="SigninTime" Type="smalldatetime" />
+          <Property Name="StaffID" Type="int" Nullable="false" />
+          <Property Name="Gender" Type="bit" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“decheng.dbo.View_dc_Favorite”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_dc_Favorite">
+          <Key>
+            <PropertyRef Name="ClassName" />
+            <PropertyRef Name="CourseID" />
+            <PropertyRef Name="ClassID" />
+            <PropertyRef Name="CourseName" />
+            <PropertyRef Name="CoursePic" />
+            <PropertyRef Name="CourseOrder" />
+            <PropertyRef Name="IsHome" />
+            <PropertyRef Name="AddTime" />
+            <PropertyRef Name="FavoriteTime" />
+            <PropertyRef Name="EnterpriseID" />
+            <PropertyRef Name="EnterpriseName" />
+            <PropertyRef Name="FavoriteID" />
+          </Key>
+          <Property Name="ClassName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CourseID" Type="int" Nullable="false" />
+          <Property Name="ClassID" Type="int" Nullable="false" />
+          <Property Name="CourseName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="SubTitle" Type="nvarchar" MaxLength="100" />
+          <Property Name="CoursePic" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CourseOrder" Type="tinyint" Nullable="false" />
+          <Property Name="CourseIntro" Type="nvarchar(max)" />
+          <Property Name="CourseDetail" Type="ntext" />
+          <Property Name="IsHome" Type="bit" Nullable="false" />
+          <Property Name="AddTime" Type="smalldatetime" Nullable="false" />
+          <Property Name="FavoriteTime" Type="smalldatetime" Nullable="false" />
+          <Property Name="EnterpriseID" Type="int" Nullable="false" />
+          <Property Name="EnterpriseName" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="FavoriteID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“decheng.dbo.View_dc_Feedback”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_dc_Feedback">
+          <Key>
+            <PropertyRef Name="CourseName" />
+            <PropertyRef Name="FullName" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="EnterpriseName" />
+            <PropertyRef Name="EnrollID" />
+            <PropertyRef Name="StaffID" />
+            <PropertyRef Name="CourseID" />
+          </Key>
+          <Property Name="CourseName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="EnterpriseName" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="EnrollID" Type="int" Nullable="false" />
+          <Property Name="StaffID" Type="int" Nullable="false" />
+          <Property Name="CourseID" Type="int" Nullable="false" />
+          <Property Name="SignupTime" Type="smalldatetime" />
+          <Property Name="SigninTime" Type="smalldatetime" />
+          <Property Name="Feedback" Type="ntext" />
+          <Property Name="FeedbackTime" Type="smalldatetime" />
+          <Property Name="Sign" Type="bit" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“decheng.dbo.View_dc_MailList”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_dc_MailList">
+          <Key>
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="CourseID" />
+            <PropertyRef Name="EnterpriseID" />
+          </Key>
+          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CourseID" Type="int" Nullable="false" />
+          <Property Name="EnterpriseID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“decheng.dbo.View_dc_Message”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_dc_Message">
+          <Key>
+            <PropertyRef Name="MessageID" />
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="UserType" />
+            <PropertyRef Name="Pick" />
+            <PropertyRef Name="IP" />
+            <PropertyRef Name="AddTime" />
+            <PropertyRef Name="Source" />
+            <PropertyRef Name="SourceName" />
+          </Key>
+          <Property Name="MessageID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="UserType" Type="tinyint" Nullable="false" />
+          <Property Name="TeacherName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pick" Type="bit" Nullable="false" />
+          <Property Name="Content" Type="ntext" />
+          <Property Name="IP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AddTime" Type="smalldatetime" Nullable="false" />
+          <Property Name="Source" Type="tinyint" Nullable="false" />
+          <Property Name="SourceName" Type="nvarchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“decheng.dbo.View_dc_Message_Enterprise”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_dc_Message_Enterprise">
+          <Key>
+            <PropertyRef Name="MessageID" />
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="UserType" />
+            <PropertyRef Name="Pick" />
+            <PropertyRef Name="IP" />
+            <PropertyRef Name="AddTime" />
+            <PropertyRef Name="Source" />
+            <PropertyRef Name="SourceName" />
+          </Key>
+          <Property Name="MessageID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="UserType" Type="tinyint" Nullable="false" />
+          <Property Name="TeacherName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pick" Type="bit" Nullable="false" />
+          <Property Name="Content" Type="ntext" />
+          <Property Name="IP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AddTime" Type="smalldatetime" Nullable="false" />
+          <Property Name="Source" Type="tinyint" Nullable="false" />
+          <Property Name="SourceName" Type="nvarchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“decheng.dbo.View_dc_Message_Staff”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_dc_Message_Staff">
+          <Key>
+            <PropertyRef Name="MessageID" />
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="UserType" />
+            <PropertyRef Name="Pick" />
+            <PropertyRef Name="IP" />
+            <PropertyRef Name="AddTime" />
+            <PropertyRef Name="Source" />
+            <PropertyRef Name="SourceName" />
+          </Key>
+          <Property Name="MessageID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="UserType" Type="tinyint" Nullable="false" />
+          <Property Name="TeacherName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pick" Type="bit" Nullable="false" />
+          <Property Name="Content" Type="ntext" />
+          <Property Name="IP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AddTime" Type="smalldatetime" Nullable="false" />
+          <Property Name="Source" Type="tinyint" Nullable="false" />
+          <Property Name="SourceName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“decheng.dbo.View_dc_SendMail”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_dc_SendMail">
+          <Key>
+            <PropertyRef Name="MailID" />
+            <PropertyRef Name="Source" />
+            <PropertyRef Name="UID" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="Content" />
+            <PropertyRef Name="AddTime" />
+            <PropertyRef Name="SendID" />
+            <PropertyRef Name="ToMail" />
+            <PropertyRef Name="SendState" />
+          </Key>
+          <Property Name="MailID" Type="int" Nullable="false" />
+          <Property Name="Source" Type="tinyint" Nullable="false" />
+          <Property Name="UID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Content" Type="ntext" Nullable="false" />
+          <Property Name="AddTime" Type="smalldatetime" Nullable="false" />
+          <Property Name="SendID" Type="int" Nullable="false" />
+          <Property Name="ToMail" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="SendTime" Type="smalldatetime" />
+          <Property Name="SendState" Type="bit" Nullable="false" />
+          <Property Name="ResultState" Type="bit" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“decheng.dbo.View_dc_Sign”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_dc_Sign">
+          <Key>
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="CourseID" />
+            <PropertyRef Name="SignupCount" />
+            <PropertyRef Name="CourseName" />
+            <PropertyRef Name="Lowerlimit" />
+          </Key>
+          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CourseID" Type="int" Nullable="false" />
+          <Property Name="SignupCount" Type="int" Nullable="false" />
+          <Property Name="CourseName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ClassPlace" Type="nvarchar" MaxLength="100" />
+          <Property Name="Lowerlimit" Type="int" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“decheng.dbo.VIEW_NAME”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="VIEW_NAME">
+          <Key>
+            <PropertyRef Name="AdminID" />
+            <PropertyRef Name="RolesID" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="PassWord" />
+            <PropertyRef Name="PageSize" />
+            <PropertyRef Name="PageGroup" />
+          </Key>
+          <Property Name="AdminID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RolesID" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="PassWord" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastLoginTime" Type="smalldatetime" />
+          <Property Name="LastLoginIP" Type="nvarchar" MaxLength="50" />
+          <Property Name="LoginNum" Type="int" />
+          <Property Name="Token" Type="nvarchar" MaxLength="50" />
+          <Property Name="PersonName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="OpenID" Type="nvarchar" MaxLength="50" />
+          <Property Name="PageSize" Type="int" Nullable="false" />
+          <Property Name="PageGroup" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dc_ADMIN_REFERENCE_dc_ROLES">
+          <End Role="dc_Roles" Type="Self.dc_Roles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="dc_Admin" Type="Self.dc_Admin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_Roles">
+              <PropertyRef Name="RolesID" />
+            </Principal>
+            <Dependent Role="dc_Admin">
+              <PropertyRef Name="RolesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DC_COMMON_COURSE_T_REFERENCE_DC_COMMONCOURSE">
+          <End Role="dc_CommonCourse" Type="Self.dc_CommonCourse" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="dc_Common_Course_Teacher" Type="Self.dc_Common_Course_Teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_CommonCourse">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="dc_Common_Course_Teacher">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DC_COMMON_COURSE_T_REFERENCE_DC_COMMONTEACHER">
+          <End Role="dc_CommonTeacher" Type="Self.dc_CommonTeacher" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="dc_Common_Course_Teacher" Type="Self.dc_Common_Course_Teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_CommonTeacher">
+              <PropertyRef Name="TeacherID" />
+            </Principal>
+            <Dependent Role="dc_Common_Course_Teacher">
+              <PropertyRef Name="TeacherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DC_COMMONCOURSE_REFERENCE_DC_COMMONCOURSECLA">
+          <End Role="dc_CommonCourseClass" Type="Self.dc_CommonCourseClass" Multiplicity="1" />
+          <End Role="dc_CommonCourse" Type="Self.dc_CommonCourse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_CommonCourseClass">
+              <PropertyRef Name="ClassID" />
+            </Principal>
+            <Dependent Role="dc_CommonCourse">
+              <PropertyRef Name="ClassID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dc_Course_dc_Enterprise">
+          <End Role="dc_Enterprise" Type="Self.dc_Enterprise" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="dc_Course" Type="Self.dc_Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_Enterprise">
+              <PropertyRef Name="EnterpriseID" />
+            </Principal>
+            <Dependent Role="dc_Course">
+              <PropertyRef Name="EnterpriseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DC_COURSE_TEACHER_REFERENCE_DC_COURSE">
+          <End Role="dc_Course" Type="Self.dc_Course" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="dc_Course_Teacher" Type="Self.dc_Course_Teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_Course">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="dc_Course_Teacher">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DC_COURSE_TEACHER_REFERENCE_DC_TEACHER">
+          <End Role="dc_Teacher" Type="Self.dc_Teacher" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="dc_Course_Teacher" Type="Self.dc_Course_Teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_Teacher">
+              <PropertyRef Name="TeacherID" />
+            </Principal>
+            <Dependent Role="dc_Course_Teacher">
+              <PropertyRef Name="TeacherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dc_CourseFavorite_dc_CommonCourse">
+          <End Role="dc_CommonCourse" Type="Self.dc_CommonCourse" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="dc_CourseFavorite" Type="Self.dc_CourseFavorite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_CommonCourse">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="dc_CourseFavorite">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DC_COURSEFAVORITE_REFERENCE_DC_COMMONCOURSE">
+          <End Role="dc_Enterprise" Type="Self.dc_Enterprise" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="dc_CourseFavorite" Type="Self.dc_CourseFavorite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_Enterprise">
+              <PropertyRef Name="EnterpriseID" />
+            </Principal>
+            <Dependent Role="dc_CourseFavorite">
+              <PropertyRef Name="EnterpriseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DC_ENROLL_REFERENCE_DC_COURSE">
+          <End Role="dc_Course" Type="Self.dc_Course" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="dc_Enroll" Type="Self.dc_Enroll" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_Course">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="dc_Enroll">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dc_Enterprise_dc_User">
+          <End Role="dc_User" Type="Self.dc_User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="dc_Enterprise" Type="Self.dc_Enterprise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="dc_Enterprise">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dc_MailSend_dc_Mail">
+          <End Role="dc_Mail" Type="Self.dc_Mail" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="dc_MailSend" Type="Self.dc_MailSend" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_Mail">
+              <PropertyRef Name="MailID" />
+            </Principal>
+            <Dependent Role="dc_MailSend">
+              <PropertyRef Name="MailID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DC_Notice_REFERENCE_DC_ENTERPRISE">
+          <End Role="dc_Enterprise" Type="Self.dc_Enterprise" Multiplicity="1" />
+          <End Role="dc_Notice" Type="Self.dc_Notice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_Enterprise">
+              <PropertyRef Name="EnterpriseID" />
+            </Principal>
+            <Dependent Role="dc_Notice">
+              <PropertyRef Name="EnterpriseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dc_Notice_Staff_dc_Notice_Staff">
+          <End Role="dc_Notice" Type="Self.dc_Notice" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="dc_Notice_Staff" Type="Self.dc_Notice_Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_Notice">
+              <PropertyRef Name="NoticeID" />
+            </Principal>
+            <Dependent Role="dc_Notice_Staff">
+              <PropertyRef Name="NoticeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dc_Notice_Staff_dc_Staff">
+          <End Role="dc_Staff" Type="Self.dc_Staff" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="dc_Notice_Staff" Type="Self.dc_Notice_Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_Staff">
+              <PropertyRef Name="StaffID" />
+            </Principal>
+            <Dependent Role="dc_Notice_Staff">
+              <PropertyRef Name="StaffID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dc_RolesItem_dc_Roles">
+          <End Role="dc_Roles" Type="Self.dc_Roles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="dc_RolesItem" Type="Self.dc_RolesItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_Roles">
+              <PropertyRef Name="RolesID" />
+            </Principal>
+            <Dependent Role="dc_RolesItem">
+              <PropertyRef Name="RolesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dc_RolesItem_dc_SysItemsClass">
+          <End Role="dc_SysItemsClass" Type="Self.dc_SysItemsClass" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="dc_RolesItem" Type="Self.dc_RolesItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_SysItemsClass">
+              <PropertyRef Name="ClassID" />
+            </Principal>
+            <Dependent Role="dc_RolesItem">
+              <PropertyRef Name="ClassID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dc_shortcut_dc_SysItemsClass">
+          <End Role="dc_SysItemsClass" Type="Self.dc_SysItemsClass" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="dc_Shortcut" Type="Self.dc_Shortcut" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_SysItemsClass">
+              <PropertyRef Name="ClassID" />
+            </Principal>
+            <Dependent Role="dc_Shortcut">
+              <PropertyRef Name="ClassID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dc_Staff_dc_User">
+          <End Role="dc_User" Type="Self.dc_User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="dc_Staff" Type="Self.dc_Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="dc_Staff">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="Log_List" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PageIndex" Type="int" Mode="In" />
+          <Parameter Name="PageSize" Type="int" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="TotalCount" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="Log_PageList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PageIndex" Type="int" Mode="In" />
+          <Parameter Name="PageSize" Type="int" Mode="In" />
+          <Parameter Name="PageCount" Type="int" Mode="InOut" />
+          <Parameter Name="TotalCount" Type="int" Mode="InOut" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="LogList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PageIndex" Type="int" Mode="In" />
+          <Parameter Name="PageSize" Type="int" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="PageCount" Type="int" Mode="InOut" />
+          <Parameter Name="TotalCount" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="proc_LogList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserName" Type="varchar" Mode="In" />
+          <Parameter Name="Description" Type="varchar" Mode="In" />
+          <Parameter Name="PageIndex" Type="int" Mode="In" />
+          <Parameter Name="PageSize" Type="int" Mode="In" />
+          <Parameter Name="TotalCount" Type="int" Mode="InOut" />
+          <Parameter Name="PageCount" Type="int" Mode="InOut" />
+        </Function>
+        <EntityContainer Name="dechengModelStoreContainer">
+          <EntitySet Name="dc_Admin" EntityType="Self.dc_Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dc_Common_Course_Teacher" EntityType="Self.dc_Common_Course_Teacher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dc_CommonCourse" EntityType="Self.dc_CommonCourse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dc_CommonCourseClass" EntityType="Self.dc_CommonCourseClass" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dc_CommonTeacher" EntityType="Self.dc_CommonTeacher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dc_Course" EntityType="Self.dc_Course" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dc_Course_Teacher" EntityType="Self.dc_Course_Teacher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dc_CourseEnroll" EntityType="Self.dc_CourseEnroll" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dc_CourseFavorite" EntityType="Self.dc_CourseFavorite" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dc_Enroll" EntityType="Self.dc_Enroll" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dc_Enterprise" EntityType="Self.dc_Enterprise" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dc_Log" EntityType="Self.dc_Log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dc_Mail" EntityType="Self.dc_Mail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dc_MailSend" EntityType="Self.dc_MailSend" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dc_Message" EntityType="Self.dc_Message" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dc_Notice" EntityType="Self.dc_Notice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dc_Notice_Staff" EntityType="Self.dc_Notice_Staff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dc_Roles" EntityType="Self.dc_Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dc_RolesItem" EntityType="Self.dc_RolesItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dc_Shortcut" EntityType="Self.dc_Shortcut" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dc_Staff" EntityType="Self.dc_Staff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dc_Student" EntityType="Self.dc_Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dc_SysConfig" EntityType="Self.dc_SysConfig" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dc_SysItemsClass" EntityType="Self.dc_SysItemsClass" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dc_Teacher" EntityType="Self.dc_Teacher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dc_User" EntityType="Self.dc_User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dc_UserItemsClass" EntityType="Self.dc_UserItemsClass" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="View_dc_Course" EntityType="Self.View_dc_Course" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_dc_Course].[CourseID] AS [CourseID], 
+    [View_dc_Course].[EnterpriseID] AS [EnterpriseID], 
+    [View_dc_Course].[CourseName] AS [CourseName], 
+    [View_dc_Course].[SubTitle] AS [SubTitle], 
+    [View_dc_Course].[ClassTime] AS [ClassTime], 
+    [View_dc_Course].[ClassPlace] AS [ClassPlace], 
+    [View_dc_Course].[CancelTime] AS [CancelTime], 
+    [View_dc_Course].[CourseState] AS [CourseState], 
+    [View_dc_Course].[SignupCount] AS [SignupCount], 
+    [View_dc_Course].[SigninCount] AS [SigninCount], 
+    [View_dc_Course].[IsHome] AS [IsHome], 
+    [View_dc_Course].[AddTime] AS [AddTime], 
+    [View_dc_Course].[FullName] AS [FullName], 
+    [View_dc_Course].[EnrollID] AS [EnrollID], 
+    [View_dc_Course].[SignupTime] AS [SignupTime], 
+    [View_dc_Course].[SigninTime] AS [SigninTime], 
+    [View_dc_Course].[StaffID] AS [StaffID], 
+    [View_dc_Course].[Gender] AS [Gender], 
+    [View_dc_Course].[Email] AS [Email]
+    FROM [dbo].[View_dc_Course] AS [View_dc_Course]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_dc_Favorite" EntityType="Self.View_dc_Favorite" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_dc_Favorite].[ClassName] AS [ClassName], 
+    [View_dc_Favorite].[CourseID] AS [CourseID], 
+    [View_dc_Favorite].[ClassID] AS [ClassID], 
+    [View_dc_Favorite].[CourseName] AS [CourseName], 
+    [View_dc_Favorite].[SubTitle] AS [SubTitle], 
+    [View_dc_Favorite].[CoursePic] AS [CoursePic], 
+    [View_dc_Favorite].[CourseOrder] AS [CourseOrder], 
+    [View_dc_Favorite].[CourseIntro] AS [CourseIntro], 
+    [View_dc_Favorite].[CourseDetail] AS [CourseDetail], 
+    [View_dc_Favorite].[IsHome] AS [IsHome], 
+    [View_dc_Favorite].[AddTime] AS [AddTime], 
+    [View_dc_Favorite].[FavoriteTime] AS [FavoriteTime], 
+    [View_dc_Favorite].[EnterpriseID] AS [EnterpriseID], 
+    [View_dc_Favorite].[EnterpriseName] AS [EnterpriseName], 
+    [View_dc_Favorite].[FavoriteID] AS [FavoriteID]
+    FROM [dbo].[View_dc_Favorite] AS [View_dc_Favorite]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_dc_Feedback" EntityType="Self.View_dc_Feedback" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_dc_Feedback].[CourseName] AS [CourseName], 
+    [View_dc_Feedback].[FullName] AS [FullName], 
+    [View_dc_Feedback].[Email] AS [Email], 
+    [View_dc_Feedback].[EnterpriseName] AS [EnterpriseName], 
+    [View_dc_Feedback].[EnrollID] AS [EnrollID], 
+    [View_dc_Feedback].[StaffID] AS [StaffID], 
+    [View_dc_Feedback].[CourseID] AS [CourseID], 
+    [View_dc_Feedback].[SignupTime] AS [SignupTime], 
+    [View_dc_Feedback].[SigninTime] AS [SigninTime], 
+    [View_dc_Feedback].[Feedback] AS [Feedback], 
+    [View_dc_Feedback].[FeedbackTime] AS [FeedbackTime], 
+    [View_dc_Feedback].[Sign] AS [Sign]
+    FROM [dbo].[View_dc_Feedback] AS [View_dc_Feedback]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_dc_MailList" EntityType="Self.View_dc_MailList" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_dc_MailList].[Email] AS [Email], 
+    [View_dc_MailList].[CourseID] AS [CourseID], 
+    [View_dc_MailList].[EnterpriseID] AS [EnterpriseID]
+    FROM [dbo].[View_dc_MailList] AS [View_dc_MailList]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_dc_Message" EntityType="Self.View_dc_Message" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_dc_Message].[MessageID] AS [MessageID], 
+    [View_dc_Message].[UserID] AS [UserID], 
+    [View_dc_Message].[UserType] AS [UserType], 
+    [View_dc_Message].[TeacherName] AS [TeacherName], 
+    [View_dc_Message].[Tel] AS [Tel], 
+    [View_dc_Message].[Pick] AS [Pick], 
+    [View_dc_Message].[Content] AS [Content], 
+    [View_dc_Message].[IP] AS [IP], 
+    [View_dc_Message].[AddTime] AS [AddTime], 
+    [View_dc_Message].[Source] AS [Source], 
+    [View_dc_Message].[SourceName] AS [SourceName]
+    FROM [dbo].[View_dc_Message] AS [View_dc_Message]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_dc_Message_Enterprise" EntityType="Self.View_dc_Message_Enterprise" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_dc_Message_Enterprise].[MessageID] AS [MessageID], 
+    [View_dc_Message_Enterprise].[UserID] AS [UserID], 
+    [View_dc_Message_Enterprise].[UserType] AS [UserType], 
+    [View_dc_Message_Enterprise].[TeacherName] AS [TeacherName], 
+    [View_dc_Message_Enterprise].[Tel] AS [Tel], 
+    [View_dc_Message_Enterprise].[Pick] AS [Pick], 
+    [View_dc_Message_Enterprise].[Content] AS [Content], 
+    [View_dc_Message_Enterprise].[IP] AS [IP], 
+    [View_dc_Message_Enterprise].[AddTime] AS [AddTime], 
+    [View_dc_Message_Enterprise].[Source] AS [Source], 
+    [View_dc_Message_Enterprise].[SourceName] AS [SourceName]
+    FROM [dbo].[View_dc_Message_Enterprise] AS [View_dc_Message_Enterprise]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_dc_Message_Staff" EntityType="Self.View_dc_Message_Staff" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_dc_Message_Staff].[MessageID] AS [MessageID], 
+    [View_dc_Message_Staff].[UserID] AS [UserID], 
+    [View_dc_Message_Staff].[UserType] AS [UserType], 
+    [View_dc_Message_Staff].[TeacherName] AS [TeacherName], 
+    [View_dc_Message_Staff].[Tel] AS [Tel], 
+    [View_dc_Message_Staff].[Pick] AS [Pick], 
+    [View_dc_Message_Staff].[Content] AS [Content], 
+    [View_dc_Message_Staff].[IP] AS [IP], 
+    [View_dc_Message_Staff].[AddTime] AS [AddTime], 
+    [View_dc_Message_Staff].[Source] AS [Source], 
+    [View_dc_Message_Staff].[SourceName] AS [SourceName]
+    FROM [dbo].[View_dc_Message_Staff] AS [View_dc_Message_Staff]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_dc_SendMail" EntityType="Self.View_dc_SendMail" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_dc_SendMail].[MailID] AS [MailID], 
+    [View_dc_SendMail].[Source] AS [Source], 
+    [View_dc_SendMail].[UID] AS [UID], 
+    [View_dc_SendMail].[Title] AS [Title], 
+    [View_dc_SendMail].[Content] AS [Content], 
+    [View_dc_SendMail].[AddTime] AS [AddTime], 
+    [View_dc_SendMail].[SendID] AS [SendID], 
+    [View_dc_SendMail].[ToMail] AS [ToMail], 
+    [View_dc_SendMail].[SendTime] AS [SendTime], 
+    [View_dc_SendMail].[SendState] AS [SendState], 
+    [View_dc_SendMail].[ResultState] AS [ResultState]
+    FROM [dbo].[View_dc_SendMail] AS [View_dc_SendMail]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_dc_Sign" EntityType="Self.View_dc_Sign" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_dc_Sign].[Email] AS [Email], 
+    [View_dc_Sign].[CourseID] AS [CourseID], 
+    [View_dc_Sign].[SignupCount] AS [SignupCount], 
+    [View_dc_Sign].[CourseName] AS [CourseName], 
+    [View_dc_Sign].[ClassPlace] AS [ClassPlace], 
+    [View_dc_Sign].[Lowerlimit] AS [Lowerlimit]
+    FROM [dbo].[View_dc_Sign] AS [View_dc_Sign]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VIEW_NAME" EntityType="Self.VIEW_NAME" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VIEW_NAME].[AdminID] AS [AdminID], 
+    [VIEW_NAME].[RolesID] AS [RolesID], 
+    [VIEW_NAME].[UserName] AS [UserName], 
+    [VIEW_NAME].[FullName] AS [FullName], 
+    [VIEW_NAME].[Email] AS [Email], 
+    [VIEW_NAME].[PassWord] AS [PassWord], 
+    [VIEW_NAME].[LastLoginTime] AS [LastLoginTime], 
+    [VIEW_NAME].[LastLoginIP] AS [LastLoginIP], 
+    [VIEW_NAME].[LoginNum] AS [LoginNum], 
+    [VIEW_NAME].[Token] AS [Token], 
+    [VIEW_NAME].[PersonName] AS [PersonName], 
+    [VIEW_NAME].[Phone] AS [Phone], 
+    [VIEW_NAME].[Title] AS [Title], 
+    [VIEW_NAME].[OpenID] AS [OpenID], 
+    [VIEW_NAME].[PageSize] AS [PageSize], 
+    [VIEW_NAME].[PageGroup] AS [PageGroup]
+    FROM [dbo].[VIEW_NAME] AS [VIEW_NAME]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_dc_ADMIN_REFERENCE_dc_ROLES" Association="Self.FK_dc_ADMIN_REFERENCE_dc_ROLES">
+            <End Role="dc_Roles" EntitySet="dc_Roles" />
+            <End Role="dc_Admin" EntitySet="dc_Admin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DC_COMMON_COURSE_T_REFERENCE_DC_COMMONCOURSE" Association="Self.FK_DC_COMMON_COURSE_T_REFERENCE_DC_COMMONCOURSE">
+            <End Role="dc_CommonCourse" EntitySet="dc_CommonCourse" />
+            <End Role="dc_Common_Course_Teacher" EntitySet="dc_Common_Course_Teacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DC_COMMON_COURSE_T_REFERENCE_DC_COMMONTEACHER" Association="Self.FK_DC_COMMON_COURSE_T_REFERENCE_DC_COMMONTEACHER">
+            <End Role="dc_CommonTeacher" EntitySet="dc_CommonTeacher" />
+            <End Role="dc_Common_Course_Teacher" EntitySet="dc_Common_Course_Teacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DC_COMMONCOURSE_REFERENCE_DC_COMMONCOURSECLA" Association="Self.FK_DC_COMMONCOURSE_REFERENCE_DC_COMMONCOURSECLA">
+            <End Role="dc_CommonCourseClass" EntitySet="dc_CommonCourseClass" />
+            <End Role="dc_CommonCourse" EntitySet="dc_CommonCourse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dc_Course_dc_Enterprise" Association="Self.FK_dc_Course_dc_Enterprise">
+            <End Role="dc_Enterprise" EntitySet="dc_Enterprise" />
+            <End Role="dc_Course" EntitySet="dc_Course" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DC_COURSE_TEACHER_REFERENCE_DC_COURSE" Association="Self.FK_DC_COURSE_TEACHER_REFERENCE_DC_COURSE">
+            <End Role="dc_Course" EntitySet="dc_Course" />
+            <End Role="dc_Course_Teacher" EntitySet="dc_Course_Teacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DC_COURSE_TEACHER_REFERENCE_DC_TEACHER" Association="Self.FK_DC_COURSE_TEACHER_REFERENCE_DC_TEACHER">
+            <End Role="dc_Teacher" EntitySet="dc_Teacher" />
+            <End Role="dc_Course_Teacher" EntitySet="dc_Course_Teacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dc_CourseFavorite_dc_CommonCourse" Association="Self.FK_dc_CourseFavorite_dc_CommonCourse">
+            <End Role="dc_CommonCourse" EntitySet="dc_CommonCourse" />
+            <End Role="dc_CourseFavorite" EntitySet="dc_CourseFavorite" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DC_COURSEFAVORITE_REFERENCE_DC_COMMONCOURSE" Association="Self.FK_DC_COURSEFAVORITE_REFERENCE_DC_COMMONCOURSE">
+            <End Role="dc_Enterprise" EntitySet="dc_Enterprise" />
+            <End Role="dc_CourseFavorite" EntitySet="dc_CourseFavorite" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DC_ENROLL_REFERENCE_DC_COURSE" Association="Self.FK_DC_ENROLL_REFERENCE_DC_COURSE">
+            <End Role="dc_Course" EntitySet="dc_Course" />
+            <End Role="dc_Enroll" EntitySet="dc_Enroll" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dc_Enterprise_dc_User" Association="Self.FK_dc_Enterprise_dc_User">
+            <End Role="dc_User" EntitySet="dc_User" />
+            <End Role="dc_Enterprise" EntitySet="dc_Enterprise" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dc_MailSend_dc_Mail" Association="Self.FK_dc_MailSend_dc_Mail">
+            <End Role="dc_Mail" EntitySet="dc_Mail" />
+            <End Role="dc_MailSend" EntitySet="dc_MailSend" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DC_Notice_REFERENCE_DC_ENTERPRISE" Association="Self.FK_DC_Notice_REFERENCE_DC_ENTERPRISE">
+            <End Role="dc_Enterprise" EntitySet="dc_Enterprise" />
+            <End Role="dc_Notice" EntitySet="dc_Notice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dc_Notice_Staff_dc_Notice_Staff" Association="Self.FK_dc_Notice_Staff_dc_Notice_Staff">
+            <End Role="dc_Notice" EntitySet="dc_Notice" />
+            <End Role="dc_Notice_Staff" EntitySet="dc_Notice_Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dc_Notice_Staff_dc_Staff" Association="Self.FK_dc_Notice_Staff_dc_Staff">
+            <End Role="dc_Staff" EntitySet="dc_Staff" />
+            <End Role="dc_Notice_Staff" EntitySet="dc_Notice_Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dc_RolesItem_dc_Roles" Association="Self.FK_dc_RolesItem_dc_Roles">
+            <End Role="dc_Roles" EntitySet="dc_Roles" />
+            <End Role="dc_RolesItem" EntitySet="dc_RolesItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dc_RolesItem_dc_SysItemsClass" Association="Self.FK_dc_RolesItem_dc_SysItemsClass">
+            <End Role="dc_SysItemsClass" EntitySet="dc_SysItemsClass" />
+            <End Role="dc_RolesItem" EntitySet="dc_RolesItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dc_shortcut_dc_SysItemsClass" Association="Self.FK_dc_shortcut_dc_SysItemsClass">
+            <End Role="dc_SysItemsClass" EntitySet="dc_SysItemsClass" />
+            <End Role="dc_Shortcut" EntitySet="dc_Shortcut" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dc_Staff_dc_User" Association="Self.FK_dc_Staff_dc_User">
+            <End Role="dc_User" EntitySet="dc_User" />
+            <End Role="dc_Staff" EntitySet="dc_Staff" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dechengModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="dc_Admin">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RolesID" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PassWord" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastLoginTime" Type="DateTime" Precision="0" />
+          <Property Name="LastLoginIP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LoginNum" Type="Int32" />
+          <Property Name="Token" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PersonName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OpenID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PageSize" Type="Int32" Nullable="false" />
+          <Property Name="PageGroup" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="dc_Roles" Relationship="Self.FK_dc_ADMIN_REFERENCE_dc_ROLES" FromRole="dc_Admin" ToRole="dc_Roles" />
+        </EntityType>
+        <EntityType Name="dc_Common_Course_Teacher">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TeacherID" Type="Int32" Nullable="false" />
+          <Property Name="CourseID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="dc_CommonCourse" Relationship="Self.FK_DC_COMMON_COURSE_T_REFERENCE_DC_COMMONCOURSE" FromRole="dc_Common_Course_Teacher" ToRole="dc_CommonCourse" />
+          <NavigationProperty Name="dc_CommonTeacher" Relationship="Self.FK_DC_COMMON_COURSE_T_REFERENCE_DC_COMMONTEACHER" FromRole="dc_Common_Course_Teacher" ToRole="dc_CommonTeacher" />
+        </EntityType>
+        <EntityType Name="dc_CommonCourse">
+          <Key>
+            <PropertyRef Name="CourseID" />
+          </Key>
+          <Property Name="CourseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClassID" Type="Int32" Nullable="false" />
+          <Property Name="CourseName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SubTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CoursePic" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CourseOrder" Type="Byte" Nullable="false" />
+          <Property Name="CourseIntro" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CourseDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsHome" Type="Boolean" Nullable="false" />
+          <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="dc_Common_Course_Teacher" Relationship="Self.FK_DC_COMMON_COURSE_T_REFERENCE_DC_COMMONCOURSE" FromRole="dc_CommonCourse" ToRole="dc_Common_Course_Teacher" />
+          <NavigationProperty Name="dc_CommonCourseClass" Relationship="Self.FK_DC_COMMONCOURSE_REFERENCE_DC_COMMONCOURSECLA" FromRole="dc_CommonCourse" ToRole="dc_CommonCourseClass" />
+          <NavigationProperty Name="dc_CourseFavorite" Relationship="Self.FK_dc_CourseFavorite_dc_CommonCourse" FromRole="dc_CommonCourse" ToRole="dc_CourseFavorite" />
+        </EntityType>
+        <EntityType Name="dc_CommonCourseClass">
+          <Key>
+            <PropertyRef Name="ClassID" />
+          </Key>
+          <Property Name="ClassID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ParentID" Type="Int32" Nullable="false" />
+          <Property Name="ParentPath" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Depth" Type="Int32" Nullable="false" />
+          <Property Name="Child" Type="Int32" Nullable="false" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="LanType" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="dc_CommonCourse" Relationship="Self.FK_DC_COMMONCOURSE_REFERENCE_DC_COMMONCOURSECLA" FromRole="dc_CommonCourseClass" ToRole="dc_CommonCourse" />
+        </EntityType>
+        <EntityType Name="dc_CommonTeacher">
+          <Key>
+            <PropertyRef Name="TeacherID" />
+          </Key>
+          <Property Name="TeacherID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TeacherName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NamePY" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SubTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TeacherTel" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TeacherEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TeacherIntro" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TeacherDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TeacherPhoto" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsHome" Type="Boolean" Nullable="false" />
+          <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="dc_Common_Course_Teacher" Relationship="Self.FK_DC_COMMON_COURSE_T_REFERENCE_DC_COMMONTEACHER" FromRole="dc_CommonTeacher" ToRole="dc_Common_Course_Teacher" />
+        </EntityType>
+        <EntityType Name="dc_Course">
+          <Key>
+            <PropertyRef Name="CourseID" />
+          </Key>
+          <Property Name="CourseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EnterpriseID" Type="Int32" Nullable="false" />
+          <Property Name="CourseName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SubTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CoursePic" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CourseOrder" Type="Byte" Nullable="false" />
+          <Property Name="CourseIntro" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CourseDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClassTime" Type="DateTime" Precision="0" />
+          <Property Name="ClassPlace" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CancelTime" Type="DateTime" Precision="0" />
+          <Property Name="QRCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CourseState" Type="Byte" Nullable="false" />
+          <Property Name="SignupCount" Type="Int32" Nullable="false" />
+          <Property Name="SigninCount" Type="Int32" Nullable="false" />
+          <Property Name="IsHome" Type="Boolean" Nullable="false" />
+          <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="dc_Enterprise" Relationship="Self.FK_dc_Course_dc_Enterprise" FromRole="dc_Course" ToRole="dc_Enterprise" />
+          <NavigationProperty Name="dc_Course_Teacher" Relationship="Self.FK_DC_COURSE_TEACHER_REFERENCE_DC_COURSE" FromRole="dc_Course" ToRole="dc_Course_Teacher" />
+          <NavigationProperty Name="dc_Enroll" Relationship="Self.FK_DC_ENROLL_REFERENCE_DC_COURSE" FromRole="dc_Course" ToRole="dc_Enroll" />
+        </EntityType>
+        <EntityType Name="dc_Course_Teacher">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseID" Type="Int32" Nullable="false" />
+          <Property Name="TeacherID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="dc_Course" Relationship="Self.FK_DC_COURSE_TEACHER_REFERENCE_DC_COURSE" FromRole="dc_Course_Teacher" ToRole="dc_Course" />
+          <NavigationProperty Name="dc_Teacher" Relationship="Self.FK_DC_COURSE_TEACHER_REFERENCE_DC_TEACHER" FromRole="dc_Course_Teacher" ToRole="dc_Teacher" />
+        </EntityType>
+        <EntityType Name="dc_CourseEnroll">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="StaffID" Type="Int32" />
+          <Property Name="CourseID" Type="Int32" />
+          <Property Name="CourseName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AddTime" Type="DateTime" Precision="0" />
+          <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="dc_CourseFavorite">
+          <Key>
+            <PropertyRef Name="FavoriteID" />
+          </Key>
+          <Property Name="FavoriteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EnterpriseID" Type="Int32" Nullable="false" />
+          <Property Name="CourseID" Type="Int32" Nullable="false" />
+          <Property Name="FavoriteTime" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="dc_CommonCourse" Relationship="Self.FK_dc_CourseFavorite_dc_CommonCourse" FromRole="dc_CourseFavorite" ToRole="dc_CommonCourse" />
+          <NavigationProperty Name="dc_Enterprise" Relationship="Self.FK_DC_COURSEFAVORITE_REFERENCE_DC_COMMONCOURSE" FromRole="dc_CourseFavorite" ToRole="dc_Enterprise" />
+        </EntityType>
+        <EntityType Name="dc_Enroll">
+          <Key>
+            <PropertyRef Name="EnrollID" />
+          </Key>
+          <Property Name="EnrollID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StaffID" Type="Int32" Nullable="false" />
+          <Property Name="CourseID" Type="Int32" Nullable="false" />
+          <Property Name="SignupTime" Type="DateTime" Precision="0" />
+          <Property Name="SigninTime" Type="DateTime" Precision="0" />
+          <Property Name="Feedback" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FeedbackTime" Type="DateTime" Precision="0" />
+          <Property Name="Sign" Type="Boolean" />
+          <NavigationProperty Name="dc_Course" Relationship="Self.FK_DC_ENROLL_REFERENCE_DC_COURSE" FromRole="dc_Enroll" ToRole="dc_Course" />
+        </EntityType>
+        <EntityType Name="dc_Enterprise">
+          <Key>
+            <PropertyRef Name="EnterpriseID" />
+          </Key>
+          <Property Name="EnterpriseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="EnterpriseName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Province" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Area" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Contact" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EnterpriseCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Toplimit" Type="Int32" Nullable="false" />
+          <Property Name="Lowerlimit" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="dc_Course" Relationship="Self.FK_dc_Course_dc_Enterprise" FromRole="dc_Enterprise" ToRole="dc_Course" />
+          <NavigationProperty Name="dc_CourseFavorite" Relationship="Self.FK_DC_COURSEFAVORITE_REFERENCE_DC_COMMONCOURSE" FromRole="dc_Enterprise" ToRole="dc_CourseFavorite" />
+          <NavigationProperty Name="dc_User" Relationship="Self.FK_dc_Enterprise_dc_User" FromRole="dc_Enterprise" ToRole="dc_User" />
+          <NavigationProperty Name="dc_Notice" Relationship="Self.FK_DC_Notice_REFERENCE_DC_ENTERPRISE" FromRole="dc_Enterprise" ToRole="dc_Notice" />
+        </EntityType>
+        <EntityType Name="dc_Log">
+          <Key>
+            <PropertyRef Name="LogId" />
+          </Key>
+          <Property Name="LogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserType" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Mobile" Type="Boolean" Nullable="false" />
+          <Property Name="OS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Brower" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UA" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="LanType" Type="Byte" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dc_Mail">
+          <Key>
+            <PropertyRef Name="MailID" />
+          </Key>
+          <Property Name="MailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Source" Type="Byte" Nullable="false" />
+          <Property Name="UID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="dc_MailSend" Relationship="Self.FK_dc_MailSend_dc_Mail" FromRole="dc_Mail" ToRole="dc_MailSend" />
+        </EntityType>
+        <EntityType Name="dc_MailSend">
+          <Key>
+            <PropertyRef Name="SendID" />
+          </Key>
+          <Property Name="SendID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MailID" Type="Int32" Nullable="false" />
+          <Property Name="ToMail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SendTime" Type="DateTime" Precision="0" />
+          <Property Name="SendState" Type="Boolean" Nullable="false" />
+          <Property Name="ResultState" Type="Boolean" />
+          <NavigationProperty Name="dc_Mail" Relationship="Self.FK_dc_MailSend_dc_Mail" FromRole="dc_MailSend" ToRole="dc_Mail" />
+        </EntityType>
+        <EntityType Name="dc_Message">
+          <Key>
+            <PropertyRef Name="MessageID" />
+          </Key>
+          <Property Name="MessageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="UserType" Type="Byte" Nullable="false" />
+          <Property Name="TeacherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pick" Type="Boolean" Nullable="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Source" Type="Byte" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dc_Notice">
+          <Key>
+            <PropertyRef Name="NoticeID" />
+          </Key>
+          <Property Name="NoticeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EnterpriseID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TitleColor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsHome" Type="Boolean" Nullable="false" />
+          <Property Name="IsTop" Type="Boolean" Nullable="false" />
+          <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="dc_Enterprise" Relationship="Self.FK_DC_Notice_REFERENCE_DC_ENTERPRISE" FromRole="dc_Notice" ToRole="dc_Enterprise" />
+          <NavigationProperty Name="dc_Notice_Staff" Relationship="Self.FK_dc_Notice_Staff_dc_Notice_Staff" FromRole="dc_Notice" ToRole="dc_Notice_Staff" />
+        </EntityType>
+        <EntityType Name="dc_Notice_Staff">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StaffID" Type="Int32" Nullable="false" />
+          <Property Name="NoticeID" Type="Int32" Nullable="false" />
+          <Property Name="ReadTime" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="dc_Notice" Relationship="Self.FK_dc_Notice_Staff_dc_Notice_Staff" FromRole="dc_Notice_Staff" ToRole="dc_Notice" />
+          <NavigationProperty Name="dc_Staff" Relationship="Self.FK_dc_Notice_Staff_dc_Staff" FromRole="dc_Notice_Staff" ToRole="dc_Staff" />
+        </EntityType>
+        <EntityType Name="dc_Roles">
+          <Key>
+            <PropertyRef Name="RolesID" />
+          </Key>
+          <Property Name="RolesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RolesName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="dc_Admin" Relationship="Self.FK_dc_ADMIN_REFERENCE_dc_ROLES" FromRole="dc_Roles" ToRole="dc_Admin" />
+          <NavigationProperty Name="dc_RolesItem" Relationship="Self.FK_dc_RolesItem_dc_Roles" FromRole="dc_Roles" ToRole="dc_RolesItem" />
+        </EntityType>
+        <EntityType Name="dc_RolesItem">
+          <Key>
+            <PropertyRef Name="Roles_Class_ID" />
+          </Key>
+          <Property Name="Roles_Class_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RolesID" Type="Int32" Nullable="false" />
+          <Property Name="ClassID" Type="Int32" Nullable="false" />
+          <Property Name="LanType" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="dc_Roles" Relationship="Self.FK_dc_RolesItem_dc_Roles" FromRole="dc_RolesItem" ToRole="dc_Roles" />
+          <NavigationProperty Name="dc_SysItemsClass" Relationship="Self.FK_dc_RolesItem_dc_SysItemsClass" FromRole="dc_RolesItem" ToRole="dc_SysItemsClass" />
+        </EntityType>
+        <EntityType Name="dc_Shortcut">
+          <Key>
+            <PropertyRef Name="shortcutID" />
+          </Key>
+          <Property Name="shortcutID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdminID" Type="Int32" Nullable="false" />
+          <Property Name="ClassID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="dc_SysItemsClass" Relationship="Self.FK_dc_shortcut_dc_SysItemsClass" FromRole="dc_Shortcut" ToRole="dc_SysItemsClass" />
+        </EntityType>
+        <EntityType Name="dc_Staff">
+          <Key>
+            <PropertyRef Name="StaffID" />
+          </Key>
+          <Property Name="StaffID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EnterpriseID" Type="Int32" Nullable="false" />
+          <Property Name="Gender" Type="Boolean" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="dc_Notice_Staff" Relationship="Self.FK_dc_Notice_Staff_dc_Staff" FromRole="dc_Staff" ToRole="dc_Notice_Staff" />
+          <NavigationProperty Name="dc_User" Relationship="Self.FK_dc_Staff_dc_User" FromRole="dc_Staff" ToRole="dc_User" />
+        </EntityType>
+        <EntityType Name="dc_Student">
+          <Key>
+            <PropertyRef Name="StudentID" />
+          </Key>
+          <Property Name="StudentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="dc_SysConfig">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Keywords" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ICP" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SMTPServer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SMTPServerPort" Type="Int32" />
+          <Property Name="FromEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PassWord" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsSSL" Type="Boolean" Nullable="false" />
+          <Property Name="SignLimit" Type="Int32" Nullable="false" />
+          <Property Name="PageSize" Type="Int32" Nullable="false" />
+          <Property Name="PageGroup" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dc_SysItemsClass">
+          <Key>
+            <PropertyRef Name="ClassID" />
+          </Key>
+          <Property Name="ClassID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ParentID" Type="Int32" Nullable="false" />
+          <Property Name="ParentPath" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Depth" Type="Int32" Nullable="false" />
+          <Property Name="Child" Type="Int32" Nullable="false" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="LinkUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LanType" Type="Byte" Nullable="false" />
+          <Property Name="IsHome" Type="Boolean" />
+          <Property Name="Icon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="dc_RolesItem" Relationship="Self.FK_dc_RolesItem_dc_SysItemsClass" FromRole="dc_SysItemsClass" ToRole="dc_RolesItem" />
+          <NavigationProperty Name="dc_Shortcut" Relationship="Self.FK_dc_shortcut_dc_SysItemsClass" FromRole="dc_SysItemsClass" ToRole="dc_Shortcut" />
+        </EntityType>
+        <EntityType Name="dc_Teacher">
+          <Key>
+            <PropertyRef Name="TeacherID" />
+          </Key>
+          <Property Name="TeacherID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EnterpriseID" Type="Int32" Nullable="false" />
+          <Property Name="TeacherName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NamePY" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SubTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TeacherTel" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TeacherEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TeacherIntro" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TeacherDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TeacherPhoto" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsHome" Type="Boolean" Nullable="false" />
+          <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="dc_Course_Teacher" Relationship="Self.FK_DC_COURSE_TEACHER_REFERENCE_DC_TEACHER" FromRole="dc_Teacher" ToRole="dc_Course_Teacher" />
+        </EntityType>
+        <EntityType Name="dc_User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserType" Type="Byte" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastLoginIP" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="LastLoginTime" Type="DateTime" Precision="0" />
+          <Property Name="LoginNum" Type="Int32" Nullable="false" />
+          <Property Name="IsLock" Type="Boolean" Nullable="false" />
+          <Property Name="Token" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="dc_Enterprise" Relationship="Self.FK_dc_Enterprise_dc_User" FromRole="dc_User" ToRole="dc_Enterprise" />
+          <NavigationProperty Name="dc_Staff" Relationship="Self.FK_dc_Staff_dc_User" FromRole="dc_User" ToRole="dc_Staff" />
+        </EntityType>
+        <EntityType Name="dc_UserItemsClass">
+          <Key>
+            <PropertyRef Name="ClassID" />
+          </Key>
+          <Property Name="ClassID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ParentID" Type="Int32" Nullable="false" />
+          <Property Name="ParentPath" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Depth" Type="Int32" Nullable="false" />
+          <Property Name="Child" Type="Int32" Nullable="false" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="LanType" Type="Byte" Nullable="false" />
+          <Property Name="LinkUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="View_dc_Course">
+          <Key>
+            <PropertyRef Name="CourseID" />
+            <PropertyRef Name="EnterpriseID" />
+            <PropertyRef Name="CourseName" />
+            <PropertyRef Name="CourseState" />
+            <PropertyRef Name="SignupCount" />
+            <PropertyRef Name="SigninCount" />
+            <PropertyRef Name="IsHome" />
+            <PropertyRef Name="AddTime" />
+            <PropertyRef Name="FullName" />
+            <PropertyRef Name="EnrollID" />
+            <PropertyRef Name="StaffID" />
+            <PropertyRef Name="Gender" />
+            <PropertyRef Name="Email" />
+          </Key>
+          <Property Name="CourseID" Type="Int32" Nullable="false" />
+          <Property Name="EnterpriseID" Type="Int32" Nullable="false" />
+          <Property Name="CourseName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SubTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ClassTime" Type="DateTime" Precision="0" />
+          <Property Name="ClassPlace" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CancelTime" Type="DateTime" Precision="0" />
+          <Property Name="CourseState" Type="Byte" Nullable="false" />
+          <Property Name="SignupCount" Type="Int32" Nullable="false" />
+          <Property Name="SigninCount" Type="Int32" Nullable="false" />
+          <Property Name="IsHome" Type="Boolean" Nullable="false" />
+          <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EnrollID" Type="Int32" Nullable="false" />
+          <Property Name="SignupTime" Type="DateTime" Precision="0" />
+          <Property Name="SigninTime" Type="DateTime" Precision="0" />
+          <Property Name="StaffID" Type="Int32" Nullable="false" />
+          <Property Name="Gender" Type="Boolean" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="View_dc_Favorite">
+          <Key>
+            <PropertyRef Name="ClassName" />
+            <PropertyRef Name="CourseID" />
+            <PropertyRef Name="ClassID" />
+            <PropertyRef Name="CourseName" />
+            <PropertyRef Name="CoursePic" />
+            <PropertyRef Name="CourseOrder" />
+            <PropertyRef Name="IsHome" />
+            <PropertyRef Name="AddTime" />
+            <PropertyRef Name="FavoriteTime" />
+            <PropertyRef Name="EnterpriseID" />
+            <PropertyRef Name="EnterpriseName" />
+            <PropertyRef Name="FavoriteID" />
+          </Key>
+          <Property Name="ClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CourseID" Type="Int32" Nullable="false" />
+          <Property Name="ClassID" Type="Int32" Nullable="false" />
+          <Property Name="CourseName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SubTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CoursePic" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CourseOrder" Type="Byte" Nullable="false" />
+          <Property Name="CourseIntro" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CourseDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsHome" Type="Boolean" Nullable="false" />
+          <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FavoriteTime" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EnterpriseID" Type="Int32" Nullable="false" />
+          <Property Name="EnterpriseName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FavoriteID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="View_dc_Feedback">
+          <Key>
+            <PropertyRef Name="CourseName" />
+            <PropertyRef Name="FullName" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="EnterpriseName" />
+            <PropertyRef Name="EnrollID" />
+            <PropertyRef Name="StaffID" />
+            <PropertyRef Name="CourseID" />
+          </Key>
+          <Property Name="CourseName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EnterpriseName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EnrollID" Type="Int32" Nullable="false" />
+          <Property Name="StaffID" Type="Int32" Nullable="false" />
+          <Property Name="CourseID" Type="Int32" Nullable="false" />
+          <Property Name="SignupTime" Type="DateTime" Precision="0" />
+          <Property Name="SigninTime" Type="DateTime" Precision="0" />
+          <Property Name="Feedback" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FeedbackTime" Type="DateTime" Precision="0" />
+          <Property Name="Sign" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="View_dc_MailList">
+          <Key>
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="CourseID" />
+            <PropertyRef Name="EnterpriseID" />
+          </Key>
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CourseID" Type="Int32" Nullable="false" />
+          <Property Name="EnterpriseID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="View_dc_Message">
+          <Key>
+            <PropertyRef Name="MessageID" />
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="UserType" />
+            <PropertyRef Name="Pick" />
+            <PropertyRef Name="IP" />
+            <PropertyRef Name="AddTime" />
+            <PropertyRef Name="Source" />
+            <PropertyRef Name="SourceName" />
+          </Key>
+          <Property Name="MessageID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="UserType" Type="Byte" Nullable="false" />
+          <Property Name="TeacherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pick" Type="Boolean" Nullable="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Source" Type="Byte" Nullable="false" />
+          <Property Name="SourceName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="View_dc_Message_Enterprise">
+          <Key>
+            <PropertyRef Name="MessageID" />
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="UserType" />
+            <PropertyRef Name="Pick" />
+            <PropertyRef Name="IP" />
+            <PropertyRef Name="AddTime" />
+            <PropertyRef Name="Source" />
+            <PropertyRef Name="SourceName" />
+          </Key>
+          <Property Name="MessageID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="UserType" Type="Byte" Nullable="false" />
+          <Property Name="TeacherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pick" Type="Boolean" Nullable="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Source" Type="Byte" Nullable="false" />
+          <Property Name="SourceName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="View_dc_Message_Staff">
+          <Key>
+            <PropertyRef Name="MessageID" />
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="UserType" />
+            <PropertyRef Name="Pick" />
+            <PropertyRef Name="IP" />
+            <PropertyRef Name="AddTime" />
+            <PropertyRef Name="Source" />
+            <PropertyRef Name="SourceName" />
+          </Key>
+          <Property Name="MessageID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="UserType" Type="Byte" Nullable="false" />
+          <Property Name="TeacherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pick" Type="Boolean" Nullable="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Source" Type="Byte" Nullable="false" />
+          <Property Name="SourceName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="View_dc_SendMail">
+          <Key>
+            <PropertyRef Name="MailID" />
+            <PropertyRef Name="Source" />
+            <PropertyRef Name="UID" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="Content" />
+            <PropertyRef Name="AddTime" />
+            <PropertyRef Name="SendID" />
+            <PropertyRef Name="ToMail" />
+            <PropertyRef Name="SendState" />
+          </Key>
+          <Property Name="MailID" Type="Int32" Nullable="false" />
+          <Property Name="Source" Type="Byte" Nullable="false" />
+          <Property Name="UID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="SendID" Type="Int32" Nullable="false" />
+          <Property Name="ToMail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SendTime" Type="DateTime" Precision="0" />
+          <Property Name="SendState" Type="Boolean" Nullable="false" />
+          <Property Name="ResultState" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="View_dc_Sign">
+          <Key>
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="CourseID" />
+            <PropertyRef Name="SignupCount" />
+            <PropertyRef Name="CourseName" />
+            <PropertyRef Name="Lowerlimit" />
+          </Key>
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CourseID" Type="Int32" Nullable="false" />
+          <Property Name="SignupCount" Type="Int32" Nullable="false" />
+          <Property Name="CourseName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClassPlace" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Lowerlimit" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VIEW_NAME">
+          <Key>
+            <PropertyRef Name="AdminID" />
+            <PropertyRef Name="RolesID" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="PassWord" />
+            <PropertyRef Name="PageSize" />
+            <PropertyRef Name="PageGroup" />
+          </Key>
+          <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RolesID" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PassWord" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastLoginTime" Type="DateTime" Precision="0" />
+          <Property Name="LastLoginIP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LoginNum" Type="Int32" />
+          <Property Name="Token" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PersonName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OpenID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PageSize" Type="Int32" Nullable="false" />
+          <Property Name="PageGroup" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dc_ADMIN_REFERENCE_dc_ROLES">
+          <End Role="dc_Roles" Type="Self.dc_Roles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="dc_Admin" Type="Self.dc_Admin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_Roles">
+              <PropertyRef Name="RolesID" />
+            </Principal>
+            <Dependent Role="dc_Admin">
+              <PropertyRef Name="RolesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DC_COMMON_COURSE_T_REFERENCE_DC_COMMONCOURSE">
+          <End Role="dc_CommonCourse" Type="Self.dc_CommonCourse" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="dc_Common_Course_Teacher" Type="Self.dc_Common_Course_Teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_CommonCourse">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="dc_Common_Course_Teacher">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DC_COMMON_COURSE_T_REFERENCE_DC_COMMONTEACHER">
+          <End Role="dc_CommonTeacher" Type="Self.dc_CommonTeacher" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="dc_Common_Course_Teacher" Type="Self.dc_Common_Course_Teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_CommonTeacher">
+              <PropertyRef Name="TeacherID" />
+            </Principal>
+            <Dependent Role="dc_Common_Course_Teacher">
+              <PropertyRef Name="TeacherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DC_COMMONCOURSE_REFERENCE_DC_COMMONCOURSECLA">
+          <End Role="dc_CommonCourseClass" Type="Self.dc_CommonCourseClass" Multiplicity="1" />
+          <End Role="dc_CommonCourse" Type="Self.dc_CommonCourse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_CommonCourseClass">
+              <PropertyRef Name="ClassID" />
+            </Principal>
+            <Dependent Role="dc_CommonCourse">
+              <PropertyRef Name="ClassID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dc_CourseFavorite_dc_CommonCourse">
+          <End Role="dc_CommonCourse" Type="Self.dc_CommonCourse" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="dc_CourseFavorite" Type="Self.dc_CourseFavorite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_CommonCourse">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="dc_CourseFavorite">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dc_Course_dc_Enterprise">
+          <End Role="dc_Enterprise" Type="Self.dc_Enterprise" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="dc_Course" Type="Self.dc_Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_Enterprise">
+              <PropertyRef Name="EnterpriseID" />
+            </Principal>
+            <Dependent Role="dc_Course">
+              <PropertyRef Name="EnterpriseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DC_COURSE_TEACHER_REFERENCE_DC_COURSE">
+          <End Role="dc_Course" Type="Self.dc_Course" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="dc_Course_Teacher" Type="Self.dc_Course_Teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_Course">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="dc_Course_Teacher">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DC_ENROLL_REFERENCE_DC_COURSE">
+          <End Role="dc_Course" Type="Self.dc_Course" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="dc_Enroll" Type="Self.dc_Enroll" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_Course">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="dc_Enroll">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DC_COURSE_TEACHER_REFERENCE_DC_TEACHER">
+          <End Role="dc_Teacher" Type="Self.dc_Teacher" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="dc_Course_Teacher" Type="Self.dc_Course_Teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_Teacher">
+              <PropertyRef Name="TeacherID" />
+            </Principal>
+            <Dependent Role="dc_Course_Teacher">
+              <PropertyRef Name="TeacherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DC_COURSEFAVORITE_REFERENCE_DC_COMMONCOURSE">
+          <End Role="dc_Enterprise" Type="Self.dc_Enterprise" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="dc_CourseFavorite" Type="Self.dc_CourseFavorite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_Enterprise">
+              <PropertyRef Name="EnterpriseID" />
+            </Principal>
+            <Dependent Role="dc_CourseFavorite">
+              <PropertyRef Name="EnterpriseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dc_Enterprise_dc_User">
+          <End Role="dc_User" Type="Self.dc_User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="dc_Enterprise" Type="Self.dc_Enterprise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="dc_Enterprise">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DC_Notice_REFERENCE_DC_ENTERPRISE">
+          <End Role="dc_Enterprise" Type="Self.dc_Enterprise" Multiplicity="1" />
+          <End Role="dc_Notice" Type="Self.dc_Notice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_Enterprise">
+              <PropertyRef Name="EnterpriseID" />
+            </Principal>
+            <Dependent Role="dc_Notice">
+              <PropertyRef Name="EnterpriseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dc_MailSend_dc_Mail">
+          <End Role="dc_Mail" Type="Self.dc_Mail" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="dc_MailSend" Type="Self.dc_MailSend" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_Mail">
+              <PropertyRef Name="MailID" />
+            </Principal>
+            <Dependent Role="dc_MailSend">
+              <PropertyRef Name="MailID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dc_Notice_Staff_dc_Notice_Staff">
+          <End Role="dc_Notice" Type="Self.dc_Notice" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="dc_Notice_Staff" Type="Self.dc_Notice_Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_Notice">
+              <PropertyRef Name="NoticeID" />
+            </Principal>
+            <Dependent Role="dc_Notice_Staff">
+              <PropertyRef Name="NoticeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dc_Notice_Staff_dc_Staff">
+          <End Role="dc_Staff" Type="Self.dc_Staff" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="dc_Notice_Staff" Type="Self.dc_Notice_Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_Staff">
+              <PropertyRef Name="StaffID" />
+            </Principal>
+            <Dependent Role="dc_Notice_Staff">
+              <PropertyRef Name="StaffID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dc_RolesItem_dc_Roles">
+          <End Role="dc_Roles" Type="Self.dc_Roles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="dc_RolesItem" Type="Self.dc_RolesItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_Roles">
+              <PropertyRef Name="RolesID" />
+            </Principal>
+            <Dependent Role="dc_RolesItem">
+              <PropertyRef Name="RolesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dc_RolesItem_dc_SysItemsClass">
+          <End Role="dc_SysItemsClass" Type="Self.dc_SysItemsClass" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="dc_RolesItem" Type="Self.dc_RolesItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_SysItemsClass">
+              <PropertyRef Name="ClassID" />
+            </Principal>
+            <Dependent Role="dc_RolesItem">
+              <PropertyRef Name="ClassID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dc_shortcut_dc_SysItemsClass">
+          <End Role="dc_SysItemsClass" Type="Self.dc_SysItemsClass" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="dc_Shortcut" Type="Self.dc_Shortcut" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_SysItemsClass">
+              <PropertyRef Name="ClassID" />
+            </Principal>
+            <Dependent Role="dc_Shortcut">
+              <PropertyRef Name="ClassID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dc_Staff_dc_User">
+          <End Role="dc_User" Type="Self.dc_User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="dc_Staff" Type="Self.dc_Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dc_User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="dc_Staff">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dechengEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="dc_Admin" EntityType="Self.dc_Admin" />
+          <EntitySet Name="dc_Common_Course_Teacher" EntityType="Self.dc_Common_Course_Teacher" />
+          <EntitySet Name="dc_CommonCourse" EntityType="Self.dc_CommonCourse" />
+          <EntitySet Name="dc_CommonCourseClass" EntityType="Self.dc_CommonCourseClass" />
+          <EntitySet Name="dc_CommonTeacher" EntityType="Self.dc_CommonTeacher" />
+          <EntitySet Name="dc_Course" EntityType="Self.dc_Course" />
+          <EntitySet Name="dc_Course_Teacher" EntityType="Self.dc_Course_Teacher" />
+          <EntitySet Name="dc_CourseEnroll" EntityType="Self.dc_CourseEnroll" />
+          <EntitySet Name="dc_CourseFavorite" EntityType="Self.dc_CourseFavorite" />
+          <EntitySet Name="dc_Enroll" EntityType="Self.dc_Enroll" />
+          <EntitySet Name="dc_Enterprise" EntityType="Self.dc_Enterprise" />
+          <EntitySet Name="dc_Log" EntityType="Self.dc_Log" />
+          <EntitySet Name="dc_Mail" EntityType="Self.dc_Mail" />
+          <EntitySet Name="dc_MailSend" EntityType="Self.dc_MailSend" />
+          <EntitySet Name="dc_Message" EntityType="Self.dc_Message" />
+          <EntitySet Name="dc_Notice" EntityType="Self.dc_Notice" />
+          <EntitySet Name="dc_Notice_Staff" EntityType="Self.dc_Notice_Staff" />
+          <EntitySet Name="dc_Roles" EntityType="Self.dc_Roles" />
+          <EntitySet Name="dc_RolesItem" EntityType="Self.dc_RolesItem" />
+          <EntitySet Name="dc_Shortcut" EntityType="Self.dc_Shortcut" />
+          <EntitySet Name="dc_Staff" EntityType="Self.dc_Staff" />
+          <EntitySet Name="dc_Student" EntityType="Self.dc_Student" />
+          <EntitySet Name="dc_SysConfig" EntityType="Self.dc_SysConfig" />
+          <EntitySet Name="dc_SysItemsClass" EntityType="Self.dc_SysItemsClass" />
+          <EntitySet Name="dc_Teacher" EntityType="Self.dc_Teacher" />
+          <EntitySet Name="dc_User" EntityType="Self.dc_User" />
+          <EntitySet Name="dc_UserItemsClass" EntityType="Self.dc_UserItemsClass" />
+          <EntitySet Name="View_dc_Course" EntityType="Self.View_dc_Course" />
+          <EntitySet Name="View_dc_Favorite" EntityType="Self.View_dc_Favorite" />
+          <EntitySet Name="View_dc_Feedback" EntityType="Self.View_dc_Feedback" />
+          <EntitySet Name="View_dc_MailList" EntityType="Self.View_dc_MailList" />
+          <EntitySet Name="View_dc_Message" EntityType="Self.View_dc_Message" />
+          <EntitySet Name="View_dc_Message_Enterprise" EntityType="Self.View_dc_Message_Enterprise" />
+          <EntitySet Name="View_dc_Message_Staff" EntityType="Self.View_dc_Message_Staff" />
+          <EntitySet Name="View_dc_SendMail" EntityType="Self.View_dc_SendMail" />
+          <EntitySet Name="View_dc_Sign" EntityType="Self.View_dc_Sign" />
+          <EntitySet Name="VIEW_NAME" EntityType="Self.VIEW_NAME" />
+          <AssociationSet Name="FK_dc_ADMIN_REFERENCE_dc_ROLES" Association="Self.FK_dc_ADMIN_REFERENCE_dc_ROLES">
+            <End Role="dc_Roles" EntitySet="dc_Roles" />
+            <End Role="dc_Admin" EntitySet="dc_Admin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DC_COMMON_COURSE_T_REFERENCE_DC_COMMONCOURSE" Association="Self.FK_DC_COMMON_COURSE_T_REFERENCE_DC_COMMONCOURSE">
+            <End Role="dc_CommonCourse" EntitySet="dc_CommonCourse" />
+            <End Role="dc_Common_Course_Teacher" EntitySet="dc_Common_Course_Teacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DC_COMMON_COURSE_T_REFERENCE_DC_COMMONTEACHER" Association="Self.FK_DC_COMMON_COURSE_T_REFERENCE_DC_COMMONTEACHER">
+            <End Role="dc_CommonTeacher" EntitySet="dc_CommonTeacher" />
+            <End Role="dc_Common_Course_Teacher" EntitySet="dc_Common_Course_Teacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DC_COMMONCOURSE_REFERENCE_DC_COMMONCOURSECLA" Association="Self.FK_DC_COMMONCOURSE_REFERENCE_DC_COMMONCOURSECLA">
+            <End Role="dc_CommonCourseClass" EntitySet="dc_CommonCourseClass" />
+            <End Role="dc_CommonCourse" EntitySet="dc_CommonCourse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dc_CourseFavorite_dc_CommonCourse" Association="Self.FK_dc_CourseFavorite_dc_CommonCourse">
+            <End Role="dc_CommonCourse" EntitySet="dc_CommonCourse" />
+            <End Role="dc_CourseFavorite" EntitySet="dc_CourseFavorite" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dc_Course_dc_Enterprise" Association="Self.FK_dc_Course_dc_Enterprise">
+            <End Role="dc_Enterprise" EntitySet="dc_Enterprise" />
+            <End Role="dc_Course" EntitySet="dc_Course" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DC_COURSE_TEACHER_REFERENCE_DC_COURSE" Association="Self.FK_DC_COURSE_TEACHER_REFERENCE_DC_COURSE">
+            <End Role="dc_Course" EntitySet="dc_Course" />
+            <End Role="dc_Course_Teacher" EntitySet="dc_Course_Teacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DC_ENROLL_REFERENCE_DC_COURSE" Association="Self.FK_DC_ENROLL_REFERENCE_DC_COURSE">
+            <End Role="dc_Course" EntitySet="dc_Course" />
+            <End Role="dc_Enroll" EntitySet="dc_Enroll" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DC_COURSE_TEACHER_REFERENCE_DC_TEACHER" Association="Self.FK_DC_COURSE_TEACHER_REFERENCE_DC_TEACHER">
+            <End Role="dc_Teacher" EntitySet="dc_Teacher" />
+            <End Role="dc_Course_Teacher" EntitySet="dc_Course_Teacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DC_COURSEFAVORITE_REFERENCE_DC_COMMONCOURSE" Association="Self.FK_DC_COURSEFAVORITE_REFERENCE_DC_COMMONCOURSE">
+            <End Role="dc_Enterprise" EntitySet="dc_Enterprise" />
+            <End Role="dc_CourseFavorite" EntitySet="dc_CourseFavorite" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dc_Enterprise_dc_User" Association="Self.FK_dc_Enterprise_dc_User">
+            <End Role="dc_User" EntitySet="dc_User" />
+            <End Role="dc_Enterprise" EntitySet="dc_Enterprise" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DC_Notice_REFERENCE_DC_ENTERPRISE" Association="Self.FK_DC_Notice_REFERENCE_DC_ENTERPRISE">
+            <End Role="dc_Enterprise" EntitySet="dc_Enterprise" />
+            <End Role="dc_Notice" EntitySet="dc_Notice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dc_MailSend_dc_Mail" Association="Self.FK_dc_MailSend_dc_Mail">
+            <End Role="dc_Mail" EntitySet="dc_Mail" />
+            <End Role="dc_MailSend" EntitySet="dc_MailSend" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dc_Notice_Staff_dc_Notice_Staff" Association="Self.FK_dc_Notice_Staff_dc_Notice_Staff">
+            <End Role="dc_Notice" EntitySet="dc_Notice" />
+            <End Role="dc_Notice_Staff" EntitySet="dc_Notice_Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dc_Notice_Staff_dc_Staff" Association="Self.FK_dc_Notice_Staff_dc_Staff">
+            <End Role="dc_Staff" EntitySet="dc_Staff" />
+            <End Role="dc_Notice_Staff" EntitySet="dc_Notice_Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dc_RolesItem_dc_Roles" Association="Self.FK_dc_RolesItem_dc_Roles">
+            <End Role="dc_Roles" EntitySet="dc_Roles" />
+            <End Role="dc_RolesItem" EntitySet="dc_RolesItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dc_RolesItem_dc_SysItemsClass" Association="Self.FK_dc_RolesItem_dc_SysItemsClass">
+            <End Role="dc_SysItemsClass" EntitySet="dc_SysItemsClass" />
+            <End Role="dc_RolesItem" EntitySet="dc_RolesItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dc_shortcut_dc_SysItemsClass" Association="Self.FK_dc_shortcut_dc_SysItemsClass">
+            <End Role="dc_SysItemsClass" EntitySet="dc_SysItemsClass" />
+            <End Role="dc_Shortcut" EntitySet="dc_Shortcut" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dc_Staff_dc_User" Association="Self.FK_dc_Staff_dc_User">
+            <End Role="dc_User" EntitySet="dc_User" />
+            <End Role="dc_Staff" EntitySet="dc_Staff" />
+          </AssociationSet>
+          <FunctionImport Name="Log_List" ReturnType="Collection(dechengModel.Log_List_Result)">
+            <Parameter Name="PageIndex" Mode="In" Type="Int32" />
+            <Parameter Name="PageSize" Mode="In" Type="Int32" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="TotalCount" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Log_PageList" ReturnType="Collection(dechengModel.Log_PageList_Result)">
+            <Parameter Name="PageIndex" Mode="In" Type="Int32" />
+            <Parameter Name="PageSize" Mode="In" Type="Int32" />
+            <Parameter Name="PageCount" Mode="InOut" Type="Int32" />
+            <Parameter Name="TotalCount" Mode="InOut" Type="Int32" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="LogList" ReturnType="Collection(Int32)">
+            <Parameter Name="PageIndex" Mode="In" Type="Int32" />
+            <Parameter Name="PageSize" Mode="In" Type="Int32" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="PageCount" Mode="InOut" Type="Int32" />
+            <Parameter Name="TotalCount" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="proc_LogList" ReturnType="Collection(dechengModel.proc_LogList_Result)">
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+            <Parameter Name="PageIndex" Mode="In" Type="Int32" />
+            <Parameter Name="PageSize" Mode="In" Type="Int32" />
+            <Parameter Name="TotalCount" Mode="InOut" Type="Int32" />
+            <Parameter Name="PageCount" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="Log_List_Result">
+          <Property Type="Int64" Name="Id" Nullable="true" />
+          <Property Type="Int32" Name="LogId" Nullable="false" />
+          <Property Type="Int32" Name="UserType" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="1500" />
+          <Property Type="Boolean" Name="Mobile" Nullable="false" />
+          <Property Type="String" Name="OS" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Brower" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="UA" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="IP" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="AddTime" Nullable="false" Precision="16" />
+          <Property Type="Byte" Name="LanType" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="Log_PageList_Result">
+          <Property Type="Int64" Name="ID" Nullable="true" />
+          <Property Type="Int32" Name="LogId" Nullable="false" />
+          <Property Type="Int32" Name="UserType" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="1500" />
+          <Property Type="Boolean" Name="Mobile" Nullable="false" />
+          <Property Type="String" Name="OS" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Brower" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="UA" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="IP" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="AddTime" Nullable="false" Precision="16" />
+          <Property Type="Byte" Name="LanType" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="proc_LogList_Result">
+          <Property Type="Int64" Name="ID" Nullable="true" />
+          <Property Type="Int32" Name="LogId" Nullable="false" />
+          <Property Type="Int32" Name="UserType" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="1500" />
+          <Property Type="Boolean" Name="Mobile" Nullable="false" />
+          <Property Type="String" Name="OS" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Brower" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="UA" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="IP" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="AddTime" Nullable="false" Precision="16" />
+          <Property Type="Byte" Name="LanType" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dechengModelStoreContainer" CdmEntityContainer="dechengEntities">
+          <EntitySetMapping Name="dc_Admin">
+            <EntityTypeMapping TypeName="dechengModel.dc_Admin">
+              <MappingFragment StoreEntitySet="dc_Admin">
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="RolesID" ColumnName="RolesID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+                <ScalarProperty Name="LastLoginTime" ColumnName="LastLoginTime" />
+                <ScalarProperty Name="LastLoginIP" ColumnName="LastLoginIP" />
+                <ScalarProperty Name="LoginNum" ColumnName="LoginNum" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="OpenID" ColumnName="OpenID" />
+                <ScalarProperty Name="PageSize" ColumnName="PageSize" />
+                <ScalarProperty Name="PageGroup" ColumnName="PageGroup" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dc_Common_Course_Teacher">
+            <EntityTypeMapping TypeName="dechengModel.dc_Common_Course_Teacher">
+              <MappingFragment StoreEntitySet="dc_Common_Course_Teacher">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dc_CommonCourse">
+            <EntityTypeMapping TypeName="dechengModel.dc_CommonCourse">
+              <MappingFragment StoreEntitySet="dc_CommonCourse">
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="SubTitle" ColumnName="SubTitle" />
+                <ScalarProperty Name="CoursePic" ColumnName="CoursePic" />
+                <ScalarProperty Name="CourseOrder" ColumnName="CourseOrder" />
+                <ScalarProperty Name="CourseIntro" ColumnName="CourseIntro" />
+                <ScalarProperty Name="CourseDetail" ColumnName="CourseDetail" />
+                <ScalarProperty Name="IsHome" ColumnName="IsHome" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dc_CommonCourseClass">
+            <EntityTypeMapping TypeName="dechengModel.dc_CommonCourseClass">
+              <MappingFragment StoreEntitySet="dc_CommonCourseClass">
+                <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="ParentPath" ColumnName="ParentPath" />
+                <ScalarProperty Name="Depth" ColumnName="Depth" />
+                <ScalarProperty Name="Child" ColumnName="Child" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="LanType" ColumnName="LanType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dc_CommonTeacher">
+            <EntityTypeMapping TypeName="dechengModel.dc_CommonTeacher">
+              <MappingFragment StoreEntitySet="dc_CommonTeacher">
+                <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
+                <ScalarProperty Name="TeacherName" ColumnName="TeacherName" />
+                <ScalarProperty Name="NamePY" ColumnName="NamePY" />
+                <ScalarProperty Name="SubTitle" ColumnName="SubTitle" />
+                <ScalarProperty Name="TeacherTel" ColumnName="TeacherTel" />
+                <ScalarProperty Name="TeacherEmail" ColumnName="TeacherEmail" />
+                <ScalarProperty Name="TeacherIntro" ColumnName="TeacherIntro" />
+                <ScalarProperty Name="TeacherDetail" ColumnName="TeacherDetail" />
+                <ScalarProperty Name="TeacherPhoto" ColumnName="TeacherPhoto" />
+                <ScalarProperty Name="IsHome" ColumnName="IsHome" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dc_Course">
+            <EntityTypeMapping TypeName="dechengModel.dc_Course">
+              <MappingFragment StoreEntitySet="dc_Course">
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="EnterpriseID" ColumnName="EnterpriseID" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="SubTitle" ColumnName="SubTitle" />
+                <ScalarProperty Name="CoursePic" ColumnName="CoursePic" />
+                <ScalarProperty Name="CourseOrder" ColumnName="CourseOrder" />
+                <ScalarProperty Name="CourseIntro" ColumnName="CourseIntro" />
+                <ScalarProperty Name="CourseDetail" ColumnName="CourseDetail" />
+                <ScalarProperty Name="ClassTime" ColumnName="ClassTime" />
+                <ScalarProperty Name="ClassPlace" ColumnName="ClassPlace" />
+                <ScalarProperty Name="CancelTime" ColumnName="CancelTime" />
+                <ScalarProperty Name="QRCode" ColumnName="QRCode" />
+                <ScalarProperty Name="CourseState" ColumnName="CourseState" />
+                <ScalarProperty Name="SignupCount" ColumnName="SignupCount" />
+                <ScalarProperty Name="SigninCount" ColumnName="SigninCount" />
+                <ScalarProperty Name="IsHome" ColumnName="IsHome" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dc_Course_Teacher">
+            <EntityTypeMapping TypeName="dechengModel.dc_Course_Teacher">
+              <MappingFragment StoreEntitySet="dc_Course_Teacher">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dc_CourseEnroll">
+            <EntityTypeMapping TypeName="dechengModel.dc_CourseEnroll">
+              <MappingFragment StoreEntitySet="dc_CourseEnroll">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dc_CourseFavorite">
+            <EntityTypeMapping TypeName="dechengModel.dc_CourseFavorite">
+              <MappingFragment StoreEntitySet="dc_CourseFavorite">
+                <ScalarProperty Name="FavoriteID" ColumnName="FavoriteID" />
+                <ScalarProperty Name="EnterpriseID" ColumnName="EnterpriseID" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="FavoriteTime" ColumnName="FavoriteTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dc_Enroll">
+            <EntityTypeMapping TypeName="dechengModel.dc_Enroll">
+              <MappingFragment StoreEntitySet="dc_Enroll">
+                <ScalarProperty Name="EnrollID" ColumnName="EnrollID" />
+                <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="SignupTime" ColumnName="SignupTime" />
+                <ScalarProperty Name="SigninTime" ColumnName="SigninTime" />
+                <ScalarProperty Name="Feedback" ColumnName="Feedback" />
+                <ScalarProperty Name="FeedbackTime" ColumnName="FeedbackTime" />
+                <ScalarProperty Name="Sign" ColumnName="Sign" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dc_Enterprise">
+            <EntityTypeMapping TypeName="dechengModel.dc_Enterprise">
+              <MappingFragment StoreEntitySet="dc_Enterprise">
+                <ScalarProperty Name="EnterpriseID" ColumnName="EnterpriseID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="EnterpriseName" ColumnName="EnterpriseName" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="EnterpriseCode" ColumnName="EnterpriseCode" />
+                <ScalarProperty Name="Toplimit" ColumnName="Toplimit" />
+                <ScalarProperty Name="Lowerlimit" ColumnName="Lowerlimit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dc_Log">
+            <EntityTypeMapping TypeName="dechengModel.dc_Log">
+              <MappingFragment StoreEntitySet="dc_Log">
+                <ScalarProperty Name="LogId" ColumnName="LogId" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="OS" ColumnName="OS" />
+                <ScalarProperty Name="Brower" ColumnName="Brower" />
+                <ScalarProperty Name="UA" ColumnName="UA" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="LanType" ColumnName="LanType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dc_Mail">
+            <EntityTypeMapping TypeName="dechengModel.dc_Mail">
+              <MappingFragment StoreEntitySet="dc_Mail">
+                <ScalarProperty Name="MailID" ColumnName="MailID" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dc_MailSend">
+            <EntityTypeMapping TypeName="dechengModel.dc_MailSend">
+              <MappingFragment StoreEntitySet="dc_MailSend">
+                <ScalarProperty Name="SendID" ColumnName="SendID" />
+                <ScalarProperty Name="MailID" ColumnName="MailID" />
+                <ScalarProperty Name="ToMail" ColumnName="ToMail" />
+                <ScalarProperty Name="SendTime" ColumnName="SendTime" />
+                <ScalarProperty Name="SendState" ColumnName="SendState" />
+                <ScalarProperty Name="ResultState" ColumnName="ResultState" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dc_Message">
+            <EntityTypeMapping TypeName="dechengModel.dc_Message">
+              <MappingFragment StoreEntitySet="dc_Message">
+                <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="TeacherName" ColumnName="TeacherName" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Pick" ColumnName="Pick" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dc_Notice">
+            <EntityTypeMapping TypeName="dechengModel.dc_Notice">
+              <MappingFragment StoreEntitySet="dc_Notice">
+                <ScalarProperty Name="NoticeID" ColumnName="NoticeID" />
+                <ScalarProperty Name="EnterpriseID" ColumnName="EnterpriseID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="TitleColor" ColumnName="TitleColor" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="IsHome" ColumnName="IsHome" />
+                <ScalarProperty Name="IsTop" ColumnName="IsTop" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dc_Notice_Staff">
+            <EntityTypeMapping TypeName="dechengModel.dc_Notice_Staff">
+              <MappingFragment StoreEntitySet="dc_Notice_Staff">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+                <ScalarProperty Name="NoticeID" ColumnName="NoticeID" />
+                <ScalarProperty Name="ReadTime" ColumnName="ReadTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dc_Roles">
+            <EntityTypeMapping TypeName="dechengModel.dc_Roles">
+              <MappingFragment StoreEntitySet="dc_Roles">
+                <ScalarProperty Name="RolesID" ColumnName="RolesID" />
+                <ScalarProperty Name="RolesName" ColumnName="RolesName" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dc_RolesItem">
+            <EntityTypeMapping TypeName="dechengModel.dc_RolesItem">
+              <MappingFragment StoreEntitySet="dc_RolesItem">
+                <ScalarProperty Name="Roles_Class_ID" ColumnName="Roles_Class_ID" />
+                <ScalarProperty Name="RolesID" ColumnName="RolesID" />
+                <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+                <ScalarProperty Name="LanType" ColumnName="LanType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dc_Shortcut">
+            <EntityTypeMapping TypeName="dechengModel.dc_Shortcut">
+              <MappingFragment StoreEntitySet="dc_Shortcut">
+                <ScalarProperty Name="shortcutID" ColumnName="shortcutID" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dc_Staff">
+            <EntityTypeMapping TypeName="dechengModel.dc_Staff">
+              <MappingFragment StoreEntitySet="dc_Staff">
+                <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+                <ScalarProperty Name="EnterpriseID" ColumnName="EnterpriseID" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dc_Student">
+            <EntityTypeMapping TypeName="dechengModel.dc_Student">
+              <MappingFragment StoreEntitySet="dc_Student">
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dc_SysConfig">
+            <EntityTypeMapping TypeName="dechengModel.dc_SysConfig">
+              <MappingFragment StoreEntitySet="dc_SysConfig">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+                <ScalarProperty Name="ICP" ColumnName="ICP" />
+                <ScalarProperty Name="SMTPServer" ColumnName="SMTPServer" />
+                <ScalarProperty Name="SMTPServerPort" ColumnName="SMTPServerPort" />
+                <ScalarProperty Name="FromEmail" ColumnName="FromEmail" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+                <ScalarProperty Name="IsSSL" ColumnName="IsSSL" />
+                <ScalarProperty Name="SignLimit" ColumnName="SignLimit" />
+                <ScalarProperty Name="PageSize" ColumnName="PageSize" />
+                <ScalarProperty Name="PageGroup" ColumnName="PageGroup" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dc_SysItemsClass">
+            <EntityTypeMapping TypeName="dechengModel.dc_SysItemsClass">
+              <MappingFragment StoreEntitySet="dc_SysItemsClass">
+                <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="ParentPath" ColumnName="ParentPath" />
+                <ScalarProperty Name="Depth" ColumnName="Depth" />
+                <ScalarProperty Name="Child" ColumnName="Child" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="LinkUrl" ColumnName="LinkUrl" />
+                <ScalarProperty Name="LanType" ColumnName="LanType" />
+                <ScalarProperty Name="IsHome" ColumnName="IsHome" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dc_Teacher">
+            <EntityTypeMapping TypeName="dechengModel.dc_Teacher">
+              <MappingFragment StoreEntitySet="dc_Teacher">
+                <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
+                <ScalarProperty Name="EnterpriseID" ColumnName="EnterpriseID" />
+                <ScalarProperty Name="TeacherName" ColumnName="TeacherName" />
+                <ScalarProperty Name="NamePY" ColumnName="NamePY" />
+                <ScalarProperty Name="SubTitle" ColumnName="SubTitle" />
+                <ScalarProperty Name="TeacherTel" ColumnName="TeacherTel" />
+                <ScalarProperty Name="TeacherEmail" ColumnName="TeacherEmail" />
+                <ScalarProperty Name="TeacherIntro" ColumnName="TeacherIntro" />
+                <ScalarProperty Name="TeacherDetail" ColumnName="TeacherDetail" />
+                <ScalarProperty Name="TeacherPhoto" ColumnName="TeacherPhoto" />
+                <ScalarProperty Name="IsHome" ColumnName="IsHome" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dc_User">
+            <EntityTypeMapping TypeName="dechengModel.dc_User">
+              <MappingFragment StoreEntitySet="dc_User">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="LastLoginIP" ColumnName="LastLoginIP" />
+                <ScalarProperty Name="LastLoginTime" ColumnName="LastLoginTime" />
+                <ScalarProperty Name="LoginNum" ColumnName="LoginNum" />
+                <ScalarProperty Name="IsLock" ColumnName="IsLock" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dc_UserItemsClass">
+            <EntityTypeMapping TypeName="dechengModel.dc_UserItemsClass">
+              <MappingFragment StoreEntitySet="dc_UserItemsClass">
+                <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="ParentPath" ColumnName="ParentPath" />
+                <ScalarProperty Name="Depth" ColumnName="Depth" />
+                <ScalarProperty Name="Child" ColumnName="Child" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="LanType" ColumnName="LanType" />
+                <ScalarProperty Name="LinkUrl" ColumnName="LinkUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_dc_Course">
+            <EntityTypeMapping TypeName="dechengModel.View_dc_Course">
+              <MappingFragment StoreEntitySet="View_dc_Course">
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="EnterpriseID" ColumnName="EnterpriseID" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="SubTitle" ColumnName="SubTitle" />
+                <ScalarProperty Name="ClassTime" ColumnName="ClassTime" />
+                <ScalarProperty Name="ClassPlace" ColumnName="ClassPlace" />
+                <ScalarProperty Name="CancelTime" ColumnName="CancelTime" />
+                <ScalarProperty Name="CourseState" ColumnName="CourseState" />
+                <ScalarProperty Name="SignupCount" ColumnName="SignupCount" />
+                <ScalarProperty Name="SigninCount" ColumnName="SigninCount" />
+                <ScalarProperty Name="IsHome" ColumnName="IsHome" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="EnrollID" ColumnName="EnrollID" />
+                <ScalarProperty Name="SignupTime" ColumnName="SignupTime" />
+                <ScalarProperty Name="SigninTime" ColumnName="SigninTime" />
+                <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_dc_Favorite">
+            <EntityTypeMapping TypeName="dechengModel.View_dc_Favorite">
+              <MappingFragment StoreEntitySet="View_dc_Favorite">
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="SubTitle" ColumnName="SubTitle" />
+                <ScalarProperty Name="CoursePic" ColumnName="CoursePic" />
+                <ScalarProperty Name="CourseOrder" ColumnName="CourseOrder" />
+                <ScalarProperty Name="CourseIntro" ColumnName="CourseIntro" />
+                <ScalarProperty Name="CourseDetail" ColumnName="CourseDetail" />
+                <ScalarProperty Name="IsHome" ColumnName="IsHome" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="FavoriteTime" ColumnName="FavoriteTime" />
+                <ScalarProperty Name="EnterpriseID" ColumnName="EnterpriseID" />
+                <ScalarProperty Name="EnterpriseName" ColumnName="EnterpriseName" />
+                <ScalarProperty Name="FavoriteID" ColumnName="FavoriteID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_dc_Feedback">
+            <EntityTypeMapping TypeName="dechengModel.View_dc_Feedback">
+              <MappingFragment StoreEntitySet="View_dc_Feedback">
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EnterpriseName" ColumnName="EnterpriseName" />
+                <ScalarProperty Name="EnrollID" ColumnName="EnrollID" />
+                <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="SignupTime" ColumnName="SignupTime" />
+                <ScalarProperty Name="SigninTime" ColumnName="SigninTime" />
+                <ScalarProperty Name="Feedback" ColumnName="Feedback" />
+                <ScalarProperty Name="FeedbackTime" ColumnName="FeedbackTime" />
+                <ScalarProperty Name="Sign" ColumnName="Sign" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_dc_MailList">
+            <EntityTypeMapping TypeName="dechengModel.View_dc_MailList">
+              <MappingFragment StoreEntitySet="View_dc_MailList">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="EnterpriseID" ColumnName="EnterpriseID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_dc_Message">
+            <EntityTypeMapping TypeName="dechengModel.View_dc_Message">
+              <MappingFragment StoreEntitySet="View_dc_Message">
+                <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="TeacherName" ColumnName="TeacherName" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Pick" ColumnName="Pick" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="SourceName" ColumnName="SourceName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_dc_Message_Enterprise">
+            <EntityTypeMapping TypeName="dechengModel.View_dc_Message_Enterprise">
+              <MappingFragment StoreEntitySet="View_dc_Message_Enterprise">
+                <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="TeacherName" ColumnName="TeacherName" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Pick" ColumnName="Pick" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="SourceName" ColumnName="SourceName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_dc_Message_Staff">
+            <EntityTypeMapping TypeName="dechengModel.View_dc_Message_Staff">
+              <MappingFragment StoreEntitySet="View_dc_Message_Staff">
+                <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="TeacherName" ColumnName="TeacherName" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Pick" ColumnName="Pick" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="SourceName" ColumnName="SourceName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_dc_SendMail">
+            <EntityTypeMapping TypeName="dechengModel.View_dc_SendMail">
+              <MappingFragment StoreEntitySet="View_dc_SendMail">
+                <ScalarProperty Name="MailID" ColumnName="MailID" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="SendID" ColumnName="SendID" />
+                <ScalarProperty Name="ToMail" ColumnName="ToMail" />
+                <ScalarProperty Name="SendTime" ColumnName="SendTime" />
+                <ScalarProperty Name="SendState" ColumnName="SendState" />
+                <ScalarProperty Name="ResultState" ColumnName="ResultState" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_dc_Sign">
+            <EntityTypeMapping TypeName="dechengModel.View_dc_Sign">
+              <MappingFragment StoreEntitySet="View_dc_Sign">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="SignupCount" ColumnName="SignupCount" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="ClassPlace" ColumnName="ClassPlace" />
+                <ScalarProperty Name="Lowerlimit" ColumnName="Lowerlimit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VIEW_NAME">
+            <EntityTypeMapping TypeName="dechengModel.VIEW_NAME">
+              <MappingFragment StoreEntitySet="VIEW_NAME">
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="RolesID" ColumnName="RolesID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+                <ScalarProperty Name="LastLoginTime" ColumnName="LastLoginTime" />
+                <ScalarProperty Name="LastLoginIP" ColumnName="LastLoginIP" />
+                <ScalarProperty Name="LoginNum" ColumnName="LoginNum" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="OpenID" ColumnName="OpenID" />
+                <ScalarProperty Name="PageSize" ColumnName="PageSize" />
+                <ScalarProperty Name="PageGroup" ColumnName="PageGroup" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Log_List" FunctionName="dechengModel.Store.Log_List">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dechengModel.Log_List_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LogId" ColumnName="LogId" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="OS" ColumnName="OS" />
+                <ScalarProperty Name="Brower" ColumnName="Brower" />
+                <ScalarProperty Name="UA" ColumnName="UA" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="LanType" ColumnName="LanType" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Log_PageList" FunctionName="dechengModel.Store.Log_PageList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dechengModel.Log_PageList_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LogId" ColumnName="LogId" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="OS" ColumnName="OS" />
+                <ScalarProperty Name="Brower" ColumnName="Brower" />
+                <ScalarProperty Name="UA" ColumnName="UA" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="LanType" ColumnName="LanType" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="LogList" FunctionName="dechengModel.Store.LogList" />
+          <FunctionImportMapping FunctionImportName="proc_LogList" FunctionName="dechengModel.Store.proc_LogList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dechengModel.proc_LogList_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LogId" ColumnName="LogId" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="OS" ColumnName="OS" />
+                <ScalarProperty Name="Brower" ColumnName="Brower" />
+                <ScalarProperty Name="UA" ColumnName="UA" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="LanType" ColumnName="LanType" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

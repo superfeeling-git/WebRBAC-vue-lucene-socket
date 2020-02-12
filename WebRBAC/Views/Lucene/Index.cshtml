@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<script src="~/Scripts/vue.js"></script>
+<script src="~/Scripts/axios.js"></script>
+<div id="main">
+    <input type="text" id="keywords" v-model="keyword" /><button type="button" v-on:click="search">搜索</button>
+    <template v-for="d in list">
+        <h1 style="font-size:16px; font-weight:bold;">
+            <a :href="d.NewsId">{{d.Title}}</a>
+            <span style="font-size:12px;">
+                时间:
+                {{d.AddTime}}
+            </span>
+            <span style="font-size:12px;">
+                id:
+                {{d.OrderId}}
+            </span>
+        </h1>
+        <div v-html="d.Content">            
+        </div>
+    </template>
+</div>
+<script>
+    new Vue({
+        el: "#main",
+        data: {
+            list: null,
+            keyword: null
+        },
+        methods: {
+            search: function () {
+                axios.get('@Url.Action("SearchPage")', {
+                    params: {
+                        keyWords: this.keyword
+                    }
+                })
+                .then(m=>(this.list = m.data))
+                .catch(function (error) {
+                    console.log(error);
+                });
+            }
+        }
+    });
+</script>

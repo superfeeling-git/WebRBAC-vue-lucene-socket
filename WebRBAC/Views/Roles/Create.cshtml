@@ -1,0 +1,101 @@
+﻿@using WebRBAC.Models;
+@model WebRBAC.Models.Roles
+@{
+    ViewBag.Title = "Create";
+    Layout = null;
+}
+<h2>Create</h2>
+<style type="text/css">
+    table tr td {
+        padding: 4px;
+        margin: 4px;
+    }
+
+    .field-validation-error {
+        color: red;
+    }
+</style>
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<link href="~/zTree_v3/css/zTreeStyle/zTreeStyle.css" rel="stylesheet" />
+<script src="~/zTree_v3/js/jquery.ztree.core.js"></script>
+<script src="~/zTree_v3/js/jquery.ztree.excheck.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/My97DatePicker/WdatePicker.js"></script>
+<SCRIPT LANGUAGE="JavaScript">
+       var zTreeObj;
+       // zTree 的参数配置，深入使用请参考 API 文档（setting 配置详解）
+       var setting = {
+           check: {
+               enable: true
+           },
+           data: {
+               simpleData: {
+                   enable: true,
+                   idKey: "id",
+                   pIdKey: "pId",
+                   rootPId: 0
+               }
+           }
+       };
+    @{ List<sysClass> list = ViewBag.sysList as List<sysClass>;}
+
+
+
+    // zTree 的数据属性，深入使用请参考 API 文档（zTreeNode 节点数据详解）
+    var zNodes = [
+        @foreach (var p in list)
+        {
+            @:{ "id": @p.ClassID, "pId": @p.ParentID, "name": "@p.ClassName", open: true},
+        }
+       ];
+
+       $(document).ready(function(){
+           zTreeObj = $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+
+           $("form").submit(function(){
+               var treeObj = $.fn.zTree.getZTreeObj("treeDemo");
+               var nodes = treeObj.getCheckedNodes(true);
+               var idList = "";
+               for(i = 0; i < nodes.length; i++)
+               {
+                   idList += nodes[i].id + ",";
+               }
+               console.log(idList);
+               $("#idList").val(idList);
+           })
+       });
+</SCRIPT>
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td>角色名称:</td>
+            <td>
+                @Html.TextBoxFor(m => m.RoleName)
+            @Html.ValidationMessageFor(m => m.RoleName)
+        </td>
+    </tr>
+    <tr>
+        <td>添加时间:</td>
+        <td>
+            @Html.TextBoxFor(m => m.AddTime, new { @Value = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), onfocus = "WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" })
+            @Html.ValidationMessageFor(m => m.RoleName)
+        </td>
+    </tr>
+    <tr>
+        <td>选择权限</td>
+        <td>
+            <ul id="treeDemo" class="ztree"></ul>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <input type="hidden" name="idList" id="idList" />
+            <button type="submit">添加</button>
+            <button type="reset">重置</button>
+        </td>
+    </tr>
+</table>
+}

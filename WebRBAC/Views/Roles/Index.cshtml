@@ -1,0 +1,42 @@
+﻿@model IEnumerable<WebRBAC.Models.Roles>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <td>ID</td>
+        <td>角色名称</td>
+        <td>添加时间</td>
+        <td>操作</td>
+    </tr>
+    @foreach (var p in Model)
+    {
+        <tr>
+            <td>@p.RoleID</td>
+            <td>@p.RoleName</td>
+            <td>@p.AddTime.ToString("yyyy-MM-dd HH:mm:ss")</td>
+            <td>
+                @Html.ActionLink("编辑", "edit", new {id=p.RoleID })
+                <a href="javascript:void(0)" data-bind="@p.RoleID" class="delete">删除</a>
+            </td>
+        </tr>
+    }
+</table>
+<script type="text/javascript">
+    $(function () {
+        $(".delete").click(function () {
+            obj = $(this).parents("tr");
+            $.ajax({
+                url: "",
+                type: "get",
+                success: function (d) {
+                    //if(d == 0)成功执行
+                    //obj.delete();
+                }
+            })
+        })
+    })
+</script>
