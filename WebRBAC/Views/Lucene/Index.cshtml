@@ -7,7 +7,7 @@
 <script src="~/Scripts/vue.js"></script>
 <script src="~/Scripts/axios.js"></script>
 <div id="main">
-    <input type="text" id="keywords" v-model="keyword" /><button type="button" v-on:click="search">搜索</button>
+    <input type="text" id="keywords" v-model="keyword" /><button type="button" @@click="search">搜索</button>
     <template v-for="d in list">
         <h1 style="font-size:16px; font-weight:bold;">
             <a :href="d.NewsId">{{d.Title}}</a>
