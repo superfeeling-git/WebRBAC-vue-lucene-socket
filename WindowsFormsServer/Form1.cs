@@ -52,7 +52,11 @@ namespace WindowsFormsServer
 
                     IPEndPoint remote = socket_client.RemoteEndPoint as IPEndPoint;
                     string client_str = $"{remote.Address}:{remote.Port}";
-                    ClientList.Items.Add(client_str);
+
+                    this.Invoke(new Action(() => {
+                        ClientList.Items.Add(client_str);
+                    }));
+                    
 
                     //把当前socket对象加入集合
                     dict.Add(client_str, socket_client);
@@ -62,11 +66,23 @@ namespace WindowsFormsServer
                         while(true)
                         {
                             Socket curr_socket = t as Socket;
-                            byte[] result = new byte[1024];
-                            int length = curr_socket.Receive(result);
-                            string msg_content = Encoding.UTF8.GetString(result, 0, length);
-                            MsgHistory.Items.Add(msg_content);
-                            MsgLog.Items.Add($"消息来源：消息内容：{msg_content},消息时间：{DateTime.Now}");
+                            try
+                            {                                 
+                                byte[] result = new byte[1024];
+                                int length = curr_socket.Receive(result);
+                                string msg_content = Encoding.UTF8.GetString(result, 0, length);
+
+                                this.Invoke(new Action(() => {
+                                    MsgHistory.Items.Add(msg_content);
+                                    MsgLog.Items.Add($"消息来源：消息内容：{msg_content},消息时间：{DateTime.Now}");
+                                }));
+                            }
+                            catch(Exception ex)
+                            {
+                                MsgLog.Items.Add(ex.Message);
+                                curr_socket.Dispose();
+                                break;
+                            }
                         }
                     });
                     thread_msg.IsBackground = true;

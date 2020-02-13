@@ -39,11 +39,22 @@ namespace WindowsFormsClient
             Thread thread = new Thread(m => {
                 while(true)
                 {
+                    try
+                    { 
                     byte[] result = new byte[1024];
                     int length = socket_client.Receive(result);
                     string msg_content = Encoding.UTF8.GetString(result, 0, length);
-                    MsgHistory.Items.Add(msg_content);
-                    MsgLog.Items.Add($"消息来源：消息内容：{msg_content},消息时间：{DateTime.Now}");
+                    this.Invoke(new Action(()=> {
+                        MsgHistory.Items.Add(msg_content);
+                        MsgLog.Items.Add($"消息来源：消息内容：{msg_content},消息时间：{DateTime.Now}");
+                    }));
+                    }
+                    catch(Exception ex)
+                    {
+                        MsgLog.Items.Add(ex.Message);
+                        socket_client.Dispose();
+                        break;
+                    }
                 }
             });
             thread.IsBackground = true;

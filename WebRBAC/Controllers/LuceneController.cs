@@ -20,6 +20,7 @@ namespace WebRBAC.Controllers
 {
     public class LuceneController : Controller
     {
+        LuceneHelper lucene = new LuceneHelper();
         // GET: Lucene
         public ActionResult Index(string keyWords)
         {
@@ -29,7 +30,7 @@ namespace WebRBAC.Controllers
         [HttpGet]
         public ActionResult SearchPage(string keyWords)
         {
-            return Json(Search(keyWords), JsonRequestBehavior.AllowGet);
+            return Json(lucene.Search(keyWords), JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
@@ -42,7 +43,7 @@ namespace WebRBAC.Controllers
         [ValidateInput(false)]
         public ActionResult Create(News news)
         {
-            CreateIndex(news);
+            lucene.CreateIndex(news);
             return RedirectToAction("Create");
         }
 
