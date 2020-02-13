@@ -51,7 +51,7 @@ namespace WindowsFormsCom
             wordDoc.PageSetup.BottomMargin = 57.0f;
             wordDoc.PageSetup.LeftMargin = 57.0f;
             wordDoc.PageSetup.RightMargin = 57.0f;
-            wordDoc.PageSetup.HeaderDistance = 30.0f;//页眉位置
+            //wordDoc.PageSetup.HeaderDistance = 30.0f;//页眉位置
             #endregion
 
             #region 页码设置并添加页码

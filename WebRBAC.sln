@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsCom", "WindowsF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excel格式解析", "Excel格式解析\Excel格式解析.csproj", "{08DC5A54-952A-44D2-B170-D56D2EB2986E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsProcess", "WindowsFormsProcess\WindowsFormsProcess.csproj", "{541330C0-256C-40EB-B185-E075F3C92346}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +93,14 @@ Global
 		{08DC5A54-952A-44D2-B170-D56D2EB2986E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{08DC5A54-952A-44D2-B170-D56D2EB2986E}.Release|x86.ActiveCfg = Release|Any CPU
 		{08DC5A54-952A-44D2-B170-D56D2EB2986E}.Release|x86.Build.0 = Release|Any CPU
+		{541330C0-256C-40EB-B185-E075F3C92346}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{541330C0-256C-40EB-B185-E075F3C92346}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{541330C0-256C-40EB-B185-E075F3C92346}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{541330C0-256C-40EB-B185-E075F3C92346}.Debug|x86.Build.0 = Debug|Any CPU
+		{541330C0-256C-40EB-B185-E075F3C92346}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{541330C0-256C-40EB-B185-E075F3C92346}.Release|Any CPU.Build.0 = Release|Any CPU
+		{541330C0-256C-40EB-B185-E075F3C92346}.Release|x86.ActiveCfg = Release|Any CPU
+		{541330C0-256C-40EB-B185-E075F3C92346}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
